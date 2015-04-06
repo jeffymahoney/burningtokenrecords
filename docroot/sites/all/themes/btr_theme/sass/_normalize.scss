@@ -108,16 +108,6 @@ html {
   @include adjust-leading-to(1);
 }
 
-@if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
-  /* Address `font-family` inconsistency between `textarea` and other form elements. */
-  button,
-  input,
-  select,
-  textarea {
-    font-family: $base-font-family;
-  }
-}
-
 /* Remove default margin. */
 body {
   margin: 0;
@@ -248,22 +238,12 @@ samp,
 tt,
 var {
   font-family: $font-monospace; // The value of $font-monospace ends with ", serif".
-  @if $legacy-support-for-ie6 {
-    _font-family: 'courier new', monospace;
-  }
   @include adjust-font-size-to( $base-font-size );
 }
 
 /* Improve readability of pre-formatted text in all browsers. */
 pre {
-  @if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
-    white-space: pre;
     white-space: pre-wrap;
-    word-wrap: break-word;
-  }
-  @else {
-    white-space: pre-wrap;
-  }
 }
 
 /* Set consistent quote types. */
@@ -320,15 +300,6 @@ ul {
   padding: 0 0 0 $indent-amount;
 }
 
-@if $legacy-support-for-ie7 {
-  /* Correct list images handled incorrectly in IE 7. */
-  nav ul,
-  nav ol {
-    list-style: none;
-    list-style-image: none;
-  }
-}
-
 /**
  * Embedded content and figures
  *
@@ -337,10 +308,6 @@ ul {
 img {
   /* Remove border when inside `a` element in IE 8/9. */
   border: 0;
-  @if $legacy-support-for-ie7 {
-    /* Improve image quality when scaled in IE 7. */
-    -ms-interpolation-mode: bicubic;
-  }
 
   /* Suppress the space beneath the baseline */
   /* vertical-align: bottom; */
@@ -348,10 +315,6 @@ img {
   /* Responsive images */
   max-width: 100%;
   height: auto;
-  @if $legacy-support-for-ie8 {
-    /* Correct IE 8 not scaling image height when resized. */
-    width: auto;
-  }
 }
 
 /* Correct overflow displayed oddly in IE 9. */
@@ -367,13 +330,6 @@ figure {
 /**
  * Forms
  */
-
-@if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
-  /* Correct margin displayed oddly in IE 6/7. */
-  form {
-    margin: 0;
-  }
-}
 
 /* Define consistent border, margin, and padding. */
 fieldset {
@@ -394,9 +350,6 @@ fieldset {
 legend {
   border: 0; /* 1 */
   padding: 0; /* 2 */
-  @if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
-    *margin-left: -7px; /* 3 */
-  }
 }
 
 /**
@@ -413,10 +366,6 @@ textarea {
   font-family: inherit; /* 1 */
   font-size: 100%; /* 2 */
   margin: 0; /* 3 */
-  @if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
-    vertical-align: baseline; /* 4 */
-    *vertical-align: middle; /* 4 */
-  }
   max-width: 100%; /* 5 */
   @include box-sizing(border-box); /* 5 */
 }
@@ -456,9 +405,6 @@ input[type="reset"],
 input[type="submit"] {
   -webkit-appearance: button; /* 2 */
   cursor: pointer; /* 3 */
-  @if $legacy-support-for-ie7 {
-    *overflow: visible; /* 4 */
-  }
 }
 
 /**
@@ -479,10 +425,6 @@ input[type="checkbox"],
 input[type="radio"] {
   @include box-sizing(border-box); /* 1 */
   padding: 0; /* 2 */
-  @if $legacy-support-for-ie7 {
-    *height: 13px; /* 3 */
-    *width: 13px; /* 3 */
-  }
 }
 
 /**
