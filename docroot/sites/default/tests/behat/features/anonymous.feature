@@ -8,5 +8,4 @@ Feature: Anonymous Users
 
   @javascript
   Scenario: Various features are working
-    Then I should see the link "burningtokenrecords"
-    And I should see text matching "Show/Hide Filters"
+    Then I should see text matching "Burning Token Records"

@@ -12,5 +12,3 @@ Feature: Adminstrator
     Then I should not see an "tr.error" element
     When I am on "admin/reports/updates/update"
     Then I should see "All of your projects are up to date."
-    When I am on "node/add"
-    Then I should see the link "Enable rich-text"

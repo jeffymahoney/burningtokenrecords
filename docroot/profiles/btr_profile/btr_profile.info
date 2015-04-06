@@ -26,6 +26,7 @@ dependencies[] = taxonomy
 ; Custom
 ;
 
+dependencies[] = btr_permissions
 
 ;
 ; Contrib

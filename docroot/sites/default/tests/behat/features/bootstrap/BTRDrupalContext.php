@@ -8,7 +8,7 @@ use Behat\Gherkin\Node\TableNode;
 /**
  * Defines application features from the specific context.
  */
-class btrrupalContext extends DrupalContext implements SnippetAcceptingContext {
+class BTRDrupalContext extends DrupalContext implements SnippetAcceptingContext {
 
   /**
    * Initializes context.

@@ -2,7 +2,7 @@ default:
   suites:
     default:
       contexts:
-        - btrrupalContext
+        - BTRDrupalContext
         - Drupal\DrupalExtension\Context\MinkContext
         - Drupal\DrupalExtension\Context\MarkupContext
         - Drupal\DrupalExtension\Context\MessageContext
