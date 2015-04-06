@@ -163,9 +163,9 @@ function btr_profile_install_set_variables() {
  */
 function btr_profile_install_set_theme() {
   // Enables custom theme.
-  theme_enable(array('zen'));
+  theme_enable(array('btr_theme'));
   // Sets default theme.
-  variable_set('theme_default', 'zen');
+  variable_set('theme_default', 'btr_theme');
   // Sets default admin theme.
   variable_set('admin_theme', 'seven');
   // Uses the admin theme when editing or creating content.

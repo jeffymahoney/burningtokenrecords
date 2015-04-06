@@ -88,6 +88,7 @@ features[variable][] = node_preview_video
 features[variable][] = node_submitted_article
 features[variable][] = node_submitted_artist
 features[variable][] = node_submitted_video
+features[variable][] = theme_btr_theme_settings
 features[variable][] = title_node
 features[variable][] = title_taxonomy_term
 features[wysiwyg][] = full_html

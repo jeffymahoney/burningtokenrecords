@@ -1,0 +1,21 @@
+source 'https://rubygems.org'
+
+group :development do
+
+  # Sass, Compass and extensions.
+  gem 'sass', '~> 3.3'               # Sass.
+  gem 'sass-globbing'           # Import Sass files based on globbing pattern.
+  gem 'compass'                 # Framework built on Sass.
+  gem 'oily_png'                # Faster Compass sprite generation.
+  gem 'breakpoint'              # Media query helper.
+  gem 'yajl-ruby'               # Faster JSON with LiveReload in the browser.
+  gem 'susy'
+  
+  # Dependency to prevent polling. Setup for multiple OS environments.
+  # Optionally remove the lines not specific to your OS.
+  # https://github.com/guard/guard#efficient-filesystem-handling
+  gem 'rb-inotify', '~> 0.9', :require => false      # Linux
+  gem 'rb-fsevent', :require => false                # Mac OSX
+  gem 'rb-fchange', :require => false                # Windows
+
+end
