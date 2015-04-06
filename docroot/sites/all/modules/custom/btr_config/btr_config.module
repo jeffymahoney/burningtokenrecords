@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the BTR Configuration feature.
+ */
+
+include_once 'btr_config.features.inc';

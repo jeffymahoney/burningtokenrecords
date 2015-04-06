@@ -26,6 +26,7 @@ dependencies[] = taxonomy
 ; Custom
 ;
 
+dependencies[] = btr_config
 dependencies[] = btr_permissions
 
 ;
@@ -64,6 +65,7 @@ dependencies[] = module_filter
 dependencies[] = paranoia
 dependencies[] = pathauto
 dependencies[] = strongarm
+dependencies[] = title
 dependencies[] = token
 dependencies[] = transliteration
 dependencies[] = views

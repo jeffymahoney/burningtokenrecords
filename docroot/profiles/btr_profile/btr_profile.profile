@@ -137,6 +137,25 @@ function btr_profile_install_set_variables() {
   // Turns on CSS and JS aggregation by default.
   variable_set('preprocess_css', 1);
   variable_set('preprocess_js', 1);
+  variable_set('title_node', array(
+    'auto_attach' => array(
+      'title' => 'title',
+    ),
+    'hide_label' => array(
+      'page' => 0,
+      'entity' => 0,
+    ),
+  ));
+  variable_set('title_taxonomy_term', array(
+    'auto_attach' => array(
+      'name' => 'name',
+      'description' => 'description',
+    ),
+    'hide_label' => array(
+      'page' => 0,
+      'entity' => 0,
+    ),
+  ));
 }
 
 /**
