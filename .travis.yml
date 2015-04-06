@@ -1,0 +1,81 @@
+language: php
+
+php:
+  - 5.4
+  - 5.5
+  - 5.6
+
+mysql:
+  database: drupal
+  username: root
+  encoding: utf8
+
+#branches:
+#  only:
+#    - develop
+
+before_install:
+  - sudo apt-get update > /dev/null
+  - composer self-update
+
+install:
+  # Installs some php packages.
+  - sudo apt-get --quiet=2 install php5-cli php5-cgi php5-curl php5-gd php5-mysql > /dev/null
+
+  # Creates DB
+  - "mysql -e 'create database drupal;'"
+
+  # Adds composer's global bin directory to the path.
+  # See: https://github.com/drush-ops/drush#install---composer
+  - export PATH="$HOME/.composer/vendor/bin:$PATH"
+
+  # Sets Behat parameters.
+  - export BEHAT_PARAMS='{"extensions":{"Behat\\MinkExtension":{"base_url":"http://127.0.0.1:8080"},"Drupal\\DrupalExtension":{"drupal":{"drupal_root":"/home/travis/build/jeffymahoney/burningtokenrecords.com/docroot"},"drush":{"alias":"self"},"subcontexts":{"paths":["/home/travis/build/jeffymahoney/burningtokenrecords.com/docroot/sites/all"]}}}}'
+
+  # Installs drush.
+  - composer global require drush/drush:6.*
+  - phpenv rehash
+
+  # Copies over settings.php
+  - cp $TRAVIS_BUILD_DIR/docroot/sites/default/travis.settings.php $TRAVIS_BUILD_DIR/docroot/sites/default/settings.php
+
+  # Installs additional libraries via composer.
+  - cd $TRAVIS_BUILD_DIR
+  - composer install --prefer-source
+
+before_script:
+
+  # Copy drush alias.
+  - mkdir ~/.drush
+  - cp $TRAVIS_BUILD_DIR/aliases.drushrc.php ~/.drush/
+
+  # Builds Behat dependencies.
+  - cd $TRAVIS_BUILD_DIR/docroot/sites/default/tests/behat
+  - composer install --prefer-source
+
+  # Sets sendmail so drush doesn't throw an error during site install.
+  - echo "sendmail_path='true'" >> `php --ini | grep "Loaded Configuration" | awk '{print $4}'`
+
+  # Installs site.
+  - cd $TRAVIS_BUILD_DIR/docroot
+  - drush si btr_profile --db-url=mysql://travis:@127.0.0.1/drupal --site-name=burningtokenrecords --account-mail="noreply@burningtokenrecords.com" --account-name=burningtokenrecords --account-pass=burningtokenrecords --site-mail="noreply@burningtokenrecords.com" -y;
+
+  # Starts a web server on port 8080, runs in the background; waits for
+  # initialization.
+  - drush @self runserver 127.0.0.1:8080 &
+  - until netstat -an 2>/dev/null | grep '8080.*LISTEN'; do true; done
+
+script:
+  # Runs PhantomJs.
+  - phantomjs --webdriver=8643 > ~/phantomjs.log 2>&1 &
+
+  # Runs Behat Tests.
+  - cd $TRAVIS_BUILD_DIR/docroot/sites/default/tests/behat
+  - ./bin/behat
+
+  # Runs PHPUnit Tests.
+  - cd $TRAVIS_BUILD_DIR
+  - vendor/bin/phpunit -c phpunit.xml
+
+  # Prints logs.
+  - cat ~/phantomjs.log

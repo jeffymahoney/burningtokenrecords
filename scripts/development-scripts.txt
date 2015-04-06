@@ -1,0 +1,53 @@
+###
+ # Terminal commands useful for development.
+ # 
+ # Uses gpg library to generate a random admin password.
+ # @see https://www.gnupg.org/documentation/manpage.html
+ #
+ # Aliases used in this script, add these to ~/.bash_profile :
+ # alias burningtokenrecordscd='cd /Applications/MAMP/htdocs/burningtokenrecords/docroot;'
+ # alias burningtokenrecordsdrush='cd /Applications/MAMP/htdocs/burningtokenrecords/docroot; drush use devlocal.burningtokenrecords.com;'
+ # alias randompassword="gpg --gen-random --armor 1 12";
+ ##
+
+## Backs up local db.
+cd ~/projects/burningtokenrecords/dbdumps/local
+DATEVAR=`date +%Y-%m-%d--%H-%M-%S`
+mysqldump -ubtr -pbtr btr > btr_local_$DATEVAR.sql
+gzip btr_local_$DATEVAR.sql;
+
+## Drops all tables in the local db.
+mysql -ubtr -pbtr
+DROP DATABASE btr;
+CREATE DATABASE btr;
+exit
+
+## Restores site from latest backup and logs in.
+## Remember to backup and/or drop db first.
+cd ~/projects/burningtokenrecords/dbdumps/local
+LATESTFILE=$(ls -t | head -1);
+gunzip $LATESTFILE;
+LATESTFILE=$(ls -t | head -1);
+pv $LATESTFILE | mysql -ubtr -pbtr btr
+gzip $LATESTFILE;
+burningtokenrecordsdrush
+# Lines that are commented out below are usually not necessary.
+# Drush RR may throw errors if db updates are needed.
+#drush rr;
+#drush updb -y;
+#drush fra -y;
+#drush vset preprocess_css 0;
+#drush vset preprocess_js 0;
+drush btrdevon;
+#drush cron;
+drush uli;
+
+###
+ # Installs a fresh copy of site
+ ##
+RANDOMPASS=$(randompassword);
+burningtokenrecordscd
+chmod -R u+w sites;
+drush si btr_profile --db-url=mysql://btr:btr@localhost/btr --site-name="Burning Token Records" --account-mail="noreply@burningtokenrecords.com" --account-name=burningtokenrecords --account-pass=$RANDOMPASS --site-mail="noreply@burningtokenrecords.com" -y;
+drush use devlocal.burningtokenrecords.com;
+drush uli;
