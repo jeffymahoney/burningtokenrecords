@@ -397,13 +397,6 @@ function btr_permissions_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: 'create artist content'.
-  $permissions['create artist content'] = array(
-    'name' => 'create artist content',
-    'roles' => array(),
-    'module' => 'node',
-  );
-
   // Exported permission: 'create city content'.
   $permissions['create city content'] = array(
     'name' => 'create city content',
@@ -418,6 +411,13 @@ function btr_permissions_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'file_entity',
+  );
+
+  // Exported permission: 'create project content'.
+  $permissions['create project content'] = array(
+    'name' => 'create project content',
+    'roles' => array(),
+    'module' => 'node',
   );
 
   // Exported permission: 'create release content'.
@@ -457,13 +457,6 @@ function btr_permissions_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: 'delete any artist content'.
-  $permissions['delete any artist content'] = array(
-    'name' => 'delete any artist content',
-    'roles' => array(),
-    'module' => 'node',
-  );
-
   // Exported permission: 'delete any audio files'.
   $permissions['delete any audio files'] = array(
     'name' => 'delete any audio files',
@@ -496,6 +489,13 @@ function btr_permissions_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'file_entity',
+  );
+
+  // Exported permission: 'delete any project content'.
+  $permissions['delete any project content'] = array(
+    'name' => 'delete any project content',
+    'roles' => array(),
+    'module' => 'node',
   );
 
   // Exported permission: 'delete any release content'.
@@ -535,13 +535,6 @@ function btr_permissions_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: 'delete own artist content'.
-  $permissions['delete own artist content'] = array(
-    'name' => 'delete own artist content',
-    'roles' => array(),
-    'module' => 'node',
-  );
-
   // Exported permission: 'delete own audio files'.
   $permissions['delete own audio files'] = array(
     'name' => 'delete own audio files',
@@ -574,6 +567,13 @@ function btr_permissions_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'file_entity',
+  );
+
+  // Exported permission: 'delete own project content'.
+  $permissions['delete own project content'] = array(
+    'name' => 'delete own project content',
+    'roles' => array(),
+    'module' => 'node',
   );
 
   // Exported permission: 'delete own release content'.
@@ -703,13 +703,6 @@ function btr_permissions_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: 'edit any artist content'.
-  $permissions['edit any artist content'] = array(
-    'name' => 'edit any artist content',
-    'roles' => array(),
-    'module' => 'node',
-  );
-
   // Exported permission: 'edit any audio files'.
   $permissions['edit any audio files'] = array(
     'name' => 'edit any audio files',
@@ -742,6 +735,13 @@ function btr_permissions_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'file_entity',
+  );
+
+  // Exported permission: 'edit any project content'.
+  $permissions['edit any project content'] = array(
+    'name' => 'edit any project content',
+    'roles' => array(),
+    'module' => 'node',
   );
 
   // Exported permission: 'edit any release content'.
@@ -781,13 +781,6 @@ function btr_permissions_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: 'edit own artist content'.
-  $permissions['edit own artist content'] = array(
-    'name' => 'edit own artist content',
-    'roles' => array(),
-    'module' => 'node',
-  );
-
   // Exported permission: 'edit own audio files'.
   $permissions['edit own audio files'] = array(
     'name' => 'edit own audio files',
@@ -820,6 +813,13 @@ function btr_permissions_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'file_entity',
+  );
+
+  // Exported permission: 'edit own project content'.
+  $permissions['edit own project content'] = array(
+    'name' => 'edit own project content',
+    'roles' => array(),
+    'module' => 'node',
   );
 
   // Exported permission: 'edit own release content'.

@@ -26,16 +26,16 @@ function btr_config_node_info() {
       'title_label' => t('Title'),
       'help' => '',
     ),
-    'artist' => array(
-      'name' => t('Artist'),
+    'city' => array(
+      'name' => t('City'),
       'base' => 'node_content',
       'description' => '',
       'has_title' => '1',
       'title_label' => t('Title'),
       'help' => '',
     ),
-    'city' => array(
-      'name' => t('City'),
+    'project' => array(
+      'name' => t('Project'),
       'base' => 'node_content',
       'description' => '',
       'has_title' => '1',
