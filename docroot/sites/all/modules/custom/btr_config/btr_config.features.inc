@@ -14,6 +14,90 @@ function btr_config_ctools_plugin_api($module = NULL, $api = NULL) {
 }
 
 /**
+ * Implements hook_image_default_styles().
+ */
+function btr_config_image_default_styles() {
+  $styles = array();
+
+  // Exported image style: 1280x720.
+  $styles['1280x720'] = array(
+    'label' => '1280x720',
+    'effects' => array(
+      3 => array(
+        'name' => 'image_scale',
+        'data' => array(
+          'width' => 1280,
+          'height' => '',
+          'upscale' => 1,
+        ),
+        'weight' => -10,
+      ),
+      1 => array(
+        'name' => 'image_scale',
+        'data' => array(
+          'width' => '',
+          'height' => 720,
+          'upscale' => 1,
+        ),
+        'weight' => -9,
+      ),
+    ),
+  );
+
+  // Exported image style: 128x72.
+  $styles['128x72'] = array(
+    'label' => '128x72',
+    'effects' => array(
+      1 => array(
+        'name' => 'image_scale',
+        'data' => array(
+          'width' => 128,
+          'height' => '',
+          'upscale' => 1,
+        ),
+        'weight' => 1,
+      ),
+      2 => array(
+        'name' => 'image_scale',
+        'data' => array(
+          'width' => '',
+          'height' => 72,
+          'upscale' => 1,
+        ),
+        'weight' => 2,
+      ),
+    ),
+  );
+
+  // Exported image style: 640x360.
+  $styles['640x360'] = array(
+    'label' => '640x360',
+    'effects' => array(
+      3 => array(
+        'name' => 'image_scale',
+        'data' => array(
+          'width' => 640,
+          'height' => '',
+          'upscale' => 1,
+        ),
+        'weight' => 1,
+      ),
+      4 => array(
+        'name' => 'image_scale',
+        'data' => array(
+          'width' => '',
+          'height' => 360,
+          'upscale' => 1,
+        ),
+        'weight' => 2,
+      ),
+    ),
+  );
+
+  return $styles;
+}
+
+/**
  * Implements hook_node_info().
  */
 function btr_config_node_info() {
