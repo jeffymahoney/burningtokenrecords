@@ -53,7 +53,6 @@ features[filter][] = plain_text
 features[node][] = article
 features[node][] = band
 features[node][] = city
-features[node][] = person
 features[node][] = release
 features[node][] = venue
 features[node][] = video

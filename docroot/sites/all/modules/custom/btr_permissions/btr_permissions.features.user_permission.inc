@@ -420,13 +420,6 @@ function btr_permissions_user_default_permissions() {
     'module' => 'file_entity',
   );
 
-  // Exported permission: 'create person content'.
-  $permissions['create person content'] = array(
-    'name' => 'create person content',
-    'roles' => array(),
-    'module' => 'node',
-  );
-
   // Exported permission: 'create release content'.
   $permissions['create release content'] = array(
     'name' => 'create release content',
@@ -505,13 +498,6 @@ function btr_permissions_user_default_permissions() {
     'module' => 'file_entity',
   );
 
-  // Exported permission: 'delete any person content'.
-  $permissions['delete any person content'] = array(
-    'name' => 'delete any person content',
-    'roles' => array(),
-    'module' => 'node',
-  );
-
   // Exported permission: 'delete any release content'.
   $permissions['delete any release content'] = array(
     'name' => 'delete any release content',
@@ -588,13 +574,6 @@ function btr_permissions_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'file_entity',
-  );
-
-  // Exported permission: 'delete own person content'.
-  $permissions['delete own person content'] = array(
-    'name' => 'delete own person content',
-    'roles' => array(),
-    'module' => 'node',
   );
 
   // Exported permission: 'delete own release content'.
@@ -765,13 +744,6 @@ function btr_permissions_user_default_permissions() {
     'module' => 'file_entity',
   );
 
-  // Exported permission: 'edit any person content'.
-  $permissions['edit any person content'] = array(
-    'name' => 'edit any person content',
-    'roles' => array(),
-    'module' => 'node',
-  );
-
   // Exported permission: 'edit any release content'.
   $permissions['edit any release content'] = array(
     'name' => 'edit any release content',
@@ -848,13 +820,6 @@ function btr_permissions_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'file_entity',
-  );
-
-  // Exported permission: 'edit own person content'.
-  $permissions['edit own person content'] = array(
-    'name' => 'edit own person content',
-    'roles' => array(),
-    'module' => 'node',
   );
 
   // Exported permission: 'edit own release content'.
