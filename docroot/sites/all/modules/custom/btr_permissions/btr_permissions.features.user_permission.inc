@@ -390,6 +390,27 @@ function btr_permissions_user_default_permissions() {
     'module' => 'user',
   );
 
+  // Exported permission: 'create article content'.
+  $permissions['create article content'] = array(
+    'name' => 'create article content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'create artist content'.
+  $permissions['create artist content'] = array(
+    'name' => 'create artist content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'create city content'.
+  $permissions['create city content'] = array(
+    'name' => 'create city content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
   // Exported permission: 'create files'.
   $permissions['create files'] = array(
     'name' => 'create files',
@@ -397,6 +418,13 @@ function btr_permissions_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'file_entity',
+  );
+
+  // Exported permission: 'create release content'.
+  $permissions['create release content'] = array(
+    'name' => 'create release content',
+    'roles' => array(),
+    'module' => 'node',
   );
 
   // Exported permission: 'create url aliases'.
@@ -408,6 +436,34 @@ function btr_permissions_user_default_permissions() {
     'module' => 'path',
   );
 
+  // Exported permission: 'create venue content'.
+  $permissions['create venue content'] = array(
+    'name' => 'create venue content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'create video content'.
+  $permissions['create video content'] = array(
+    'name' => 'create video content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'delete any article content'.
+  $permissions['delete any article content'] = array(
+    'name' => 'delete any article content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'delete any artist content'.
+  $permissions['delete any artist content'] = array(
+    'name' => 'delete any artist content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
   // Exported permission: 'delete any audio files'.
   $permissions['delete any audio files'] = array(
     'name' => 'delete any audio files',
@@ -415,6 +471,13 @@ function btr_permissions_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'file_entity',
+  );
+
+  // Exported permission: 'delete any city content'.
+  $permissions['delete any city content'] = array(
+    'name' => 'delete any city content',
+    'roles' => array(),
+    'module' => 'node',
   );
 
   // Exported permission: 'delete any document files'.
@@ -435,6 +498,27 @@ function btr_permissions_user_default_permissions() {
     'module' => 'file_entity',
   );
 
+  // Exported permission: 'delete any release content'.
+  $permissions['delete any release content'] = array(
+    'name' => 'delete any release content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'delete any venue content'.
+  $permissions['delete any venue content'] = array(
+    'name' => 'delete any venue content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'delete any video content'.
+  $permissions['delete any video content'] = array(
+    'name' => 'delete any video content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
   // Exported permission: 'delete any video files'.
   $permissions['delete any video files'] = array(
     'name' => 'delete any video files',
@@ -444,6 +528,20 @@ function btr_permissions_user_default_permissions() {
     'module' => 'file_entity',
   );
 
+  // Exported permission: 'delete own article content'.
+  $permissions['delete own article content'] = array(
+    'name' => 'delete own article content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'delete own artist content'.
+  $permissions['delete own artist content'] = array(
+    'name' => 'delete own artist content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
   // Exported permission: 'delete own audio files'.
   $permissions['delete own audio files'] = array(
     'name' => 'delete own audio files',
@@ -451,6 +549,13 @@ function btr_permissions_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'file_entity',
+  );
+
+  // Exported permission: 'delete own city content'.
+  $permissions['delete own city content'] = array(
+    'name' => 'delete own city content',
+    'roles' => array(),
+    'module' => 'node',
   );
 
   // Exported permission: 'delete own document files'.
@@ -469,6 +574,27 @@ function btr_permissions_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'file_entity',
+  );
+
+  // Exported permission: 'delete own release content'.
+  $permissions['delete own release content'] = array(
+    'name' => 'delete own release content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'delete own venue content'.
+  $permissions['delete own venue content'] = array(
+    'name' => 'delete own venue content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'delete own video content'.
+  $permissions['delete own video content'] = array(
+    'name' => 'delete own video content',
+    'roles' => array(),
+    'module' => 'node',
   );
 
   // Exported permission: 'delete own video files'.
@@ -570,6 +696,20 @@ function btr_permissions_user_default_permissions() {
     'module' => 'file_entity',
   );
 
+  // Exported permission: 'edit any article content'.
+  $permissions['edit any article content'] = array(
+    'name' => 'edit any article content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'edit any artist content'.
+  $permissions['edit any artist content'] = array(
+    'name' => 'edit any artist content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
   // Exported permission: 'edit any audio files'.
   $permissions['edit any audio files'] = array(
     'name' => 'edit any audio files',
@@ -577,6 +717,13 @@ function btr_permissions_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'file_entity',
+  );
+
+  // Exported permission: 'edit any city content'.
+  $permissions['edit any city content'] = array(
+    'name' => 'edit any city content',
+    'roles' => array(),
+    'module' => 'node',
   );
 
   // Exported permission: 'edit any document files'.
@@ -597,6 +744,27 @@ function btr_permissions_user_default_permissions() {
     'module' => 'file_entity',
   );
 
+  // Exported permission: 'edit any release content'.
+  $permissions['edit any release content'] = array(
+    'name' => 'edit any release content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'edit any venue content'.
+  $permissions['edit any venue content'] = array(
+    'name' => 'edit any venue content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'edit any video content'.
+  $permissions['edit any video content'] = array(
+    'name' => 'edit any video content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
   // Exported permission: 'edit any video files'.
   $permissions['edit any video files'] = array(
     'name' => 'edit any video files',
@@ -606,6 +774,20 @@ function btr_permissions_user_default_permissions() {
     'module' => 'file_entity',
   );
 
+  // Exported permission: 'edit own article content'.
+  $permissions['edit own article content'] = array(
+    'name' => 'edit own article content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'edit own artist content'.
+  $permissions['edit own artist content'] = array(
+    'name' => 'edit own artist content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
   // Exported permission: 'edit own audio files'.
   $permissions['edit own audio files'] = array(
     'name' => 'edit own audio files',
@@ -613,6 +795,13 @@ function btr_permissions_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'file_entity',
+  );
+
+  // Exported permission: 'edit own city content'.
+  $permissions['edit own city content'] = array(
+    'name' => 'edit own city content',
+    'roles' => array(),
+    'module' => 'node',
   );
 
   // Exported permission: 'edit own document files'.
@@ -631,6 +820,27 @@ function btr_permissions_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'file_entity',
+  );
+
+  // Exported permission: 'edit own release content'.
+  $permissions['edit own release content'] = array(
+    'name' => 'edit own release content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'edit own venue content'.
+  $permissions['edit own venue content'] = array(
+    'name' => 'edit own venue content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'edit own video content'.
+  $permissions['edit own video content'] = array(
+    'name' => 'edit own video content',
+    'roles' => array(),
+    'module' => 'node',
   );
 
   // Exported permission: 'edit own video files'.
@@ -721,6 +931,13 @@ function btr_permissions_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'media_wysiwyg',
+  );
+
+  // Exported permission: 'use text format full_html'.
+  $permissions['use text format full_html'] = array(
+    'name' => 'use text format full_html',
+    'roles' => array(),
+    'module' => 'filter',
   );
 
   // Exported permission: 'view files'.
