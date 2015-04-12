@@ -397,6 +397,13 @@ function btr_permissions_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'create band content'.
+  $permissions['create band content'] = array(
+    'name' => 'create band content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
   // Exported permission: 'create city content'.
   $permissions['create city content'] = array(
     'name' => 'create city content',
@@ -416,13 +423,6 @@ function btr_permissions_user_default_permissions() {
   // Exported permission: 'create person content'.
   $permissions['create person content'] = array(
     'name' => 'create person content',
-    'roles' => array(),
-    'module' => 'node',
-  );
-
-  // Exported permission: 'create project content'.
-  $permissions['create project content'] = array(
-    'name' => 'create project content',
     'roles' => array(),
     'module' => 'node',
   );
@@ -473,6 +473,13 @@ function btr_permissions_user_default_permissions() {
     'module' => 'file_entity',
   );
 
+  // Exported permission: 'delete any band content'.
+  $permissions['delete any band content'] = array(
+    'name' => 'delete any band content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
   // Exported permission: 'delete any city content'.
   $permissions['delete any city content'] = array(
     'name' => 'delete any city content',
@@ -501,13 +508,6 @@ function btr_permissions_user_default_permissions() {
   // Exported permission: 'delete any person content'.
   $permissions['delete any person content'] = array(
     'name' => 'delete any person content',
-    'roles' => array(),
-    'module' => 'node',
-  );
-
-  // Exported permission: 'delete any project content'.
-  $permissions['delete any project content'] = array(
-    'name' => 'delete any project content',
     'roles' => array(),
     'module' => 'node',
   );
@@ -558,6 +558,13 @@ function btr_permissions_user_default_permissions() {
     'module' => 'file_entity',
   );
 
+  // Exported permission: 'delete own band content'.
+  $permissions['delete own band content'] = array(
+    'name' => 'delete own band content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
   // Exported permission: 'delete own city content'.
   $permissions['delete own city content'] = array(
     'name' => 'delete own city content',
@@ -586,13 +593,6 @@ function btr_permissions_user_default_permissions() {
   // Exported permission: 'delete own person content'.
   $permissions['delete own person content'] = array(
     'name' => 'delete own person content',
-    'roles' => array(),
-    'module' => 'node',
-  );
-
-  // Exported permission: 'delete own project content'.
-  $permissions['delete own project content'] = array(
-    'name' => 'delete own project content',
     'roles' => array(),
     'module' => 'node',
   );
@@ -733,6 +733,13 @@ function btr_permissions_user_default_permissions() {
     'module' => 'file_entity',
   );
 
+  // Exported permission: 'edit any band content'.
+  $permissions['edit any band content'] = array(
+    'name' => 'edit any band content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
   // Exported permission: 'edit any city content'.
   $permissions['edit any city content'] = array(
     'name' => 'edit any city content',
@@ -761,13 +768,6 @@ function btr_permissions_user_default_permissions() {
   // Exported permission: 'edit any person content'.
   $permissions['edit any person content'] = array(
     'name' => 'edit any person content',
-    'roles' => array(),
-    'module' => 'node',
-  );
-
-  // Exported permission: 'edit any project content'.
-  $permissions['edit any project content'] = array(
-    'name' => 'edit any project content',
     'roles' => array(),
     'module' => 'node',
   );
@@ -818,6 +818,13 @@ function btr_permissions_user_default_permissions() {
     'module' => 'file_entity',
   );
 
+  // Exported permission: 'edit own band content'.
+  $permissions['edit own band content'] = array(
+    'name' => 'edit own band content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
   // Exported permission: 'edit own city content'.
   $permissions['edit own city content'] = array(
     'name' => 'edit own city content',
@@ -846,13 +853,6 @@ function btr_permissions_user_default_permissions() {
   // Exported permission: 'edit own person content'.
   $permissions['edit own person content'] = array(
     'name' => 'edit own person content',
-    'roles' => array(),
-    'module' => 'node',
-  );
-
-  // Exported permission: 'edit own project content'.
-  $permissions['edit own project content'] = array(
-    'name' => 'edit own project content',
     'roles' => array(),
     'module' => 'node',
   );

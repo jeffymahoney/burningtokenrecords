@@ -26,6 +26,14 @@ function btr_config_node_info() {
       'title_label' => t('Title'),
       'help' => '',
     ),
+    'band' => array(
+      'name' => t('Band'),
+      'base' => 'node_content',
+      'description' => '',
+      'has_title' => '1',
+      'title_label' => t('Title'),
+      'help' => '',
+    ),
     'city' => array(
       'name' => t('City'),
       'base' => 'node_content',
@@ -36,14 +44,6 @@ function btr_config_node_info() {
     ),
     'person' => array(
       'name' => t('Person'),
-      'base' => 'node_content',
-      'description' => '',
-      'has_title' => '1',
-      'title_label' => t('Title'),
-      'help' => '',
-    ),
-    'project' => array(
-      'name' => t('Project'),
       'base' => 'node_content',
       'description' => '',
       'has_title' => '1',
