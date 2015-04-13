@@ -1,0 +1,11 @@
+#page {
+  @include container($break-xlg);
+}
+#header {
+  @include span(12);
+  text-align: center;
+  @include clearfix();
+}
+#main-content {
+  @include span(12);
+}

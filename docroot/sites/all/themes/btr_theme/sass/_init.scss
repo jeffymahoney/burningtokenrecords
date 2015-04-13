@@ -12,19 +12,38 @@
 // use in the normalize.scss file.
 // @see http://compass-style.org/reference/compass/typography/vertical_rhythm/
 
-$base-font-size:   16px; // The font size set on the root html element.
-$base-line-height: 24px; // This line-height determines the basic unit of vertical rhythm.
+$base-font-size: 16px;
+// The font size set on the root html element.
+$base-line-height: 24px;
+// This line-height determines the basic unit of vertical rhythm.
 
 $h1-font-size: 2    * $base-font-size;
 $h2-font-size: 1.5  * $base-font-size;
 $h3-font-size: 1.17 * $base-font-size;
-$h4-font-size: 1    * $base-font-size;
-$h5-font-size: 0.83 * $base-font-size;
-$h6-font-size: 0.67 * $base-font-size;
+$h4-font-size: 1.05 * $base-font-size;
+$h5-font-size: 0.90 * $base-font-size;
+$h6-font-size: 0.75 * $base-font-size;
 
-$base-font-family: "Kingthings Trypewriter", Verdana, sans-serif;
-$font-body:        $base-font-family;
-$font-monospace:   $base-font-family;
+@font-face {
+  font-family: 'kingthings_trypewriter_2Rg';
+  src: url('../../../fonts/Kingthings_Trypewriter_2-webfont.eot');
+  src: url('../../../fonts/Kingthings_Trypewriter_2-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../../../fonts/Kingthings_Trypewriter_2-webfont.woff') format('woff'),
+  url('../../../fonts/Kingthings_Trypewriter_2-webfont.ttf') format('truetype'),
+  url('../../../fonts/Kingthings_Trypewriter_2-webfont.svg#kingthings_trypewriter_2Rg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+$base-font-family: "kingthings_trypewriter_2Rg", Verdana, sans-serif;
+$font-body: $base-font-family;
+$font-monospace: $base-font-family;
+
+$color-btorange: #ff5400;
+$color-btorangered: #ff3800;
+$color-btgoldenrod: #daa520;
+$font-color: #fff;
+$background-color: #000;
 
 // The amount lists, blockquotes and comments are indented.
 $indent-amount: 30px;
@@ -35,6 +54,17 @@ $nav-height: 3em;
 // Tab styling.
 $tabs-container-bg: #fff;
 $tabs-border: #bbb;
+
+$susy: (
+  columns: 12,  // The number of columns in your grid
+  gutters: 1/4, // The size of a gutter in relation to a single column
+);
+
+$break-xs: 500px;
+$break-sm: 650px;
+$break-md: 800px;
+$break-lg: 1000px;
+$break-xlg: 1200px;
 
 // Add Compass' IE and vendor prefix support variables.
 @import "compass/support";

@@ -1,7 +1,6 @@
 <div id="page">
   <header class="header" id="header" role="banner">
     <a href="<?php print $front_page; ?>" title="<?php print $site_name; ?>" rel="home" class="header__logo" id="logo"><img src="<?php print $logo; ?>" alt="<?php print $site_name; ?>" class="header__logo-image"/></a>
-    <h1 class="header__site-name" id="site-name"><?php print $site_name; ?></h1>
   </header>
   <div id="main-content" role="main">
     <?php print render($title_prefix); ?>

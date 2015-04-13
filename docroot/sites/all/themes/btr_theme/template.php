@@ -98,5 +98,4 @@ function btr_theme_preprocess_html(&$variables) {
     ),
   );
   drupal_add_html_head($element, 'btr_theme_android_meta_theme_color');
-
 }
