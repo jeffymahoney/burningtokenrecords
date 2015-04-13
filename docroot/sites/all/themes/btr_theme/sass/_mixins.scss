@@ -32,3 +32,10 @@
     @include element-invisible-off;
   }
 }
+
+// Compass box-sizing mixin override to fix deprecation warnings.
+// @see https://github.com/Compass/compass/issues/1924
+@mixin box-sizing($value) {
+  -moz-box-sizing: $value;
+  box-sizing: $value;
+}

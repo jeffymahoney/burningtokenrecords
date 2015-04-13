@@ -8,4 +8,4 @@ Feature: Anonymous Users
 
   @javascript
   Scenario: Various features are working
-    Then I should see text matching "Burning Token Records"
+    Then I should see text matching "No front page content has been created yet."
