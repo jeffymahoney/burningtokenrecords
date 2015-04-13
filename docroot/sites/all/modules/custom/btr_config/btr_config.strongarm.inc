@@ -223,7 +223,14 @@ function btr_config_strongarm() {
           'weight' => '1',
         ),
       ),
-      'display' => array(),
+      'display' => array(
+        'band_releases_entity_view_1' => array(
+          'default' => array(
+            'weight' => '10',
+            'visible' => TRUE,
+          ),
+        ),
+      ),
     ),
   );
   $export['field_bundle_settings_node__band'] = $strongarm;
@@ -287,6 +294,9 @@ function btr_config_strongarm() {
       ),
       'revision' => array(
         'custom_settings' => FALSE,
+      ),
+      'attachment' => array(
+        'custom_settings' => TRUE,
       ),
     ),
     'extra_fields' => array(

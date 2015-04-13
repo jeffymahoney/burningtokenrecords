@@ -8,9 +8,19 @@
  * Implements hook_ctools_plugin_api().
  */
 function btr_config_ctools_plugin_api($module = NULL, $api = NULL) {
+  if ($module == "ds" && $api == "ds") {
+    return array("version" => "1");
+  }
   if ($module == "strongarm" && $api == "strongarm") {
     return array("version" => "1");
   }
+}
+
+/**
+ * Implements hook_views_api().
+ */
+function btr_config_views_api($module = NULL, $api = NULL) {
+  return array("api" => "3.0");
 }
 
 /**
@@ -48,23 +58,13 @@ function btr_config_image_default_styles() {
   $styles['128x72'] = array(
     'label' => '128x72',
     'effects' => array(
-      1 => array(
-        'name' => 'image_scale',
+      3 => array(
+        'name' => 'image_scale_and_crop',
         'data' => array(
           'width' => 128,
-          'height' => '',
-          'upscale' => 1,
+          'height' => 72,
         ),
         'weight' => 1,
-      ),
-      2 => array(
-        'name' => 'image_scale',
-        'data' => array(
-          'width' => '',
-          'height' => 72,
-          'upscale' => 1,
-        ),
-        'weight' => 2,
       ),
     ),
   );
