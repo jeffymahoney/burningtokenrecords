@@ -80,13 +80,6 @@ function btr_config_user_default_permissions() {
     'module' => 'taxonomy',
   );
 
-  // Exported permission: 'delete terms in venues'.
-  $permissions['delete terms in venues'] = array(
-    'name' => 'delete terms in venues',
-    'roles' => array(),
-    'module' => 'taxonomy',
-  );
-
   // Exported permission: 'edit any article content'.
   $permissions['edit any article content'] = array(
     'name' => 'edit any article content',
@@ -132,13 +125,6 @@ function btr_config_user_default_permissions() {
   // Exported permission: 'edit terms in cities'.
   $permissions['edit terms in cities'] = array(
     'name' => 'edit terms in cities',
-    'roles' => array(),
-    'module' => 'taxonomy',
-  );
-
-  // Exported permission: 'edit terms in venues'.
-  $permissions['edit terms in venues'] = array(
-    'name' => 'edit terms in venues',
     'roles' => array(),
     'module' => 'taxonomy',
   );

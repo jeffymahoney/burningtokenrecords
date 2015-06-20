@@ -429,13 +429,6 @@ function btr_permissions_user_default_permissions() {
     'module' => 'path',
   );
 
-  // Exported permission: 'create venue content'.
-  $permissions['create venue content'] = array(
-    'name' => 'create venue content',
-    'roles' => array(),
-    'module' => 'node',
-  );
-
   // Exported permission: 'delete any article content'.
   $permissions['delete any article content'] = array(
     'name' => 'delete any article content',
@@ -480,13 +473,6 @@ function btr_permissions_user_default_permissions() {
   // Exported permission: 'delete any release content'.
   $permissions['delete any release content'] = array(
     'name' => 'delete any release content',
-    'roles' => array(),
-    'module' => 'node',
-  );
-
-  // Exported permission: 'delete any venue content'.
-  $permissions['delete any venue content'] = array(
-    'name' => 'delete any venue content',
     'roles' => array(),
     'module' => 'node',
   );
@@ -544,13 +530,6 @@ function btr_permissions_user_default_permissions() {
   // Exported permission: 'delete own release content'.
   $permissions['delete own release content'] = array(
     'name' => 'delete own release content',
-    'roles' => array(),
-    'module' => 'node',
-  );
-
-  // Exported permission: 'delete own venue content'.
-  $permissions['delete own venue content'] = array(
-    'name' => 'delete own venue content',
     'roles' => array(),
     'module' => 'node',
   );
@@ -702,13 +681,6 @@ function btr_permissions_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: 'edit any venue content'.
-  $permissions['edit any venue content'] = array(
-    'name' => 'edit any venue content',
-    'roles' => array(),
-    'module' => 'node',
-  );
-
   // Exported permission: 'edit any video files'.
   $permissions['edit any video files'] = array(
     'name' => 'edit any video files',
@@ -762,13 +734,6 @@ function btr_permissions_user_default_permissions() {
   // Exported permission: 'edit own release content'.
   $permissions['edit own release content'] = array(
     'name' => 'edit own release content',
-    'roles' => array(),
-    'module' => 'node',
-  );
-
-  // Exported permission: 'edit own venue content'.
-  $permissions['edit own venue content'] = array(
-    'name' => 'edit own venue content',
     'roles' => array(),
     'module' => 'node',
   );
