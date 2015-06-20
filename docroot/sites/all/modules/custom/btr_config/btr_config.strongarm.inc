@@ -263,7 +263,7 @@ function btr_config_strongarm() {
     'extra_fields' => array(
       'form' => array(
         'path' => array(
-          'weight' => '3',
+          'weight' => '1',
         ),
       ),
       'display' => array(),
@@ -302,7 +302,7 @@ function btr_config_strongarm() {
     'extra_fields' => array(
       'form' => array(
         'path' => array(
-          'weight' => '3',
+          'weight' => '1',
         ),
       ),
       'display' => array(),
@@ -338,7 +338,7 @@ function btr_config_strongarm() {
     'extra_fields' => array(
       'form' => array(
         'path' => array(
-          'weight' => '3',
+          'weight' => '1',
         ),
       ),
       'display' => array(),
@@ -374,7 +374,7 @@ function btr_config_strongarm() {
     'extra_fields' => array(
       'form' => array(
         'path' => array(
-          'weight' => '5',
+          'weight' => '1',
         ),
       ),
       'display' => array(),
