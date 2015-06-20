@@ -404,13 +404,6 @@ function btr_permissions_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: 'create city content'.
-  $permissions['create city content'] = array(
-    'name' => 'create city content',
-    'roles' => array(),
-    'module' => 'node',
-  );
-
   // Exported permission: 'create files'.
   $permissions['create files'] = array(
     'name' => 'create files',
@@ -443,13 +436,6 @@ function btr_permissions_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: 'create video content'.
-  $permissions['create video content'] = array(
-    'name' => 'create video content',
-    'roles' => array(),
-    'module' => 'node',
-  );
-
   // Exported permission: 'delete any article content'.
   $permissions['delete any article content'] = array(
     'name' => 'delete any article content',
@@ -469,13 +455,6 @@ function btr_permissions_user_default_permissions() {
   // Exported permission: 'delete any band content'.
   $permissions['delete any band content'] = array(
     'name' => 'delete any band content',
-    'roles' => array(),
-    'module' => 'node',
-  );
-
-  // Exported permission: 'delete any city content'.
-  $permissions['delete any city content'] = array(
-    'name' => 'delete any city content',
     'roles' => array(),
     'module' => 'node',
   );
@@ -512,13 +491,6 @@ function btr_permissions_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: 'delete any video content'.
-  $permissions['delete any video content'] = array(
-    'name' => 'delete any video content',
-    'roles' => array(),
-    'module' => 'node',
-  );
-
   // Exported permission: 'delete any video files'.
   $permissions['delete any video files'] = array(
     'name' => 'delete any video files',
@@ -551,13 +523,6 @@ function btr_permissions_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: 'delete own city content'.
-  $permissions['delete own city content'] = array(
-    'name' => 'delete own city content',
-    'roles' => array(),
-    'module' => 'node',
-  );
-
   // Exported permission: 'delete own document files'.
   $permissions['delete own document files'] = array(
     'name' => 'delete own document files',
@@ -586,13 +551,6 @@ function btr_permissions_user_default_permissions() {
   // Exported permission: 'delete own venue content'.
   $permissions['delete own venue content'] = array(
     'name' => 'delete own venue content',
-    'roles' => array(),
-    'module' => 'node',
-  );
-
-  // Exported permission: 'delete own video content'.
-  $permissions['delete own video content'] = array(
-    'name' => 'delete own video content',
     'roles' => array(),
     'module' => 'node',
   );
@@ -719,13 +677,6 @@ function btr_permissions_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: 'edit any city content'.
-  $permissions['edit any city content'] = array(
-    'name' => 'edit any city content',
-    'roles' => array(),
-    'module' => 'node',
-  );
-
   // Exported permission: 'edit any document files'.
   $permissions['edit any document files'] = array(
     'name' => 'edit any document files',
@@ -754,13 +705,6 @@ function btr_permissions_user_default_permissions() {
   // Exported permission: 'edit any venue content'.
   $permissions['edit any venue content'] = array(
     'name' => 'edit any venue content',
-    'roles' => array(),
-    'module' => 'node',
-  );
-
-  // Exported permission: 'edit any video content'.
-  $permissions['edit any video content'] = array(
-    'name' => 'edit any video content',
     'roles' => array(),
     'module' => 'node',
   );
@@ -797,13 +741,6 @@ function btr_permissions_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: 'edit own city content'.
-  $permissions['edit own city content'] = array(
-    'name' => 'edit own city content',
-    'roles' => array(),
-    'module' => 'node',
-  );
-
   // Exported permission: 'edit own document files'.
   $permissions['edit own document files'] = array(
     'name' => 'edit own document files',
@@ -832,13 +769,6 @@ function btr_permissions_user_default_permissions() {
   // Exported permission: 'edit own venue content'.
   $permissions['edit own venue content'] = array(
     'name' => 'edit own venue content',
-    'roles' => array(),
-    'module' => 'node',
-  );
-
-  // Exported permission: 'edit own video content'.
-  $permissions['edit own video content'] = array(
-    'name' => 'edit own video content',
     'roles' => array(),
     'module' => 'node',
   );
@@ -918,9 +848,7 @@ function btr_permissions_user_default_permissions() {
   // Exported permission: 'use ctools import'.
   $permissions['use ctools import'] = array(
     'name' => 'use ctools import',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
+    'roles' => array(),
     'module' => 'ctools',
   );
 

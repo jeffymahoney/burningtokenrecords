@@ -118,14 +118,6 @@ function btr_config_node_info() {
       'title_label' => t('Title'),
       'help' => '',
     ),
-    'city' => array(
-      'name' => t('City'),
-      'base' => 'node_content',
-      'description' => '',
-      'has_title' => '1',
-      'title_label' => t('Title'),
-      'help' => '',
-    ),
     'release' => array(
       'name' => t('Release'),
       'base' => 'node_content',
@@ -136,14 +128,6 @@ function btr_config_node_info() {
     ),
     'venue' => array(
       'name' => t('Venue'),
-      'base' => 'node_content',
-      'description' => '',
-      'has_title' => '1',
-      'title_label' => t('Title'),
-      'help' => '',
-    ),
-    'video' => array(
-      'name' => t('Video'),
       'base' => 'node_content',
       'description' => '',
       'has_title' => '1',

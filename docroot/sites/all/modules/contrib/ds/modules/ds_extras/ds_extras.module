@@ -425,6 +425,7 @@ function ds_extras_form_node_form_alter(&$form, $form_state, $form_id) {
       $mode = isset($form_state['input']['ds_switch']) ? $form_state['input']['ds_switch'] : (isset($node->ds_switch) ? $node->ds_switch : 'default');
       if (isset($layouts[$mode])) {
         $chosen_layout = $layouts[$mode];
+        $chosen_layout = (isset($layouts[$mode])) ? $layouts[$mode] : 'default';
 
         $image = (isset($chosen_layout['image']) && !empty($chosen_layout['image'])) ? $chosen_layout['path'] . '/' . $chosen_layout['layout'] . '.png' : $fallback_image;
         if (isset($chosen_layout['panels']) && !empty($chosen_layout['panels']['icon'])) {
@@ -1087,6 +1088,18 @@ function ds_extras_preprocess_field(&$variables) {
       $variables['theme_hook_suggestions'][] = $suggestion . '__' . $field_name;
       $variables['theme_hook_suggestions'][] = $suggestion . '__' . $variables['element']['#bundle'];
       $variables['theme_hook_suggestions'][] = $suggestion . '__' . $field_name . '__' . $variables['element']['#bundle'];
+    }
+  }
+
+  // Sanitize the output of field templates
+  $fields = array(
+    'prefix',
+    'suffix',
+  );
+
+  foreach ($fields as $field) {
+    if (isset($variables['ds-config'][$field])) {
+      $variables['ds-config'][$field] = filter_xss_admin($variables['ds-config'][$field]);
     }
   }
 }
