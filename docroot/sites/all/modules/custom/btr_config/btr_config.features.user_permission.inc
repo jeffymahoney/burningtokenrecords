@@ -73,13 +73,6 @@ function btr_config_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: 'delete terms in cities'.
-  $permissions['delete terms in cities'] = array(
-    'name' => 'delete terms in cities',
-    'roles' => array(),
-    'module' => 'taxonomy',
-  );
-
   // Exported permission: 'edit any article content'.
   $permissions['edit any article content'] = array(
     'name' => 'edit any article content',
@@ -120,13 +113,6 @@ function btr_config_user_default_permissions() {
     'name' => 'edit own video content',
     'roles' => array(),
     'module' => 'node',
-  );
-
-  // Exported permission: 'edit terms in cities'.
-  $permissions['edit terms in cities'] = array(
-    'name' => 'edit terms in cities',
-    'roles' => array(),
-    'module' => 'taxonomy',
   );
 
   // Exported permission: 'use text format full_html'.
