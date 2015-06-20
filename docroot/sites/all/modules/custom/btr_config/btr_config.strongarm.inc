@@ -216,9 +216,6 @@ function btr_config_strongarm() {
       'revision' => array(
         'custom_settings' => FALSE,
       ),
-      'attachment' => array(
-        'custom_settings' => FALSE,
-      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -261,9 +258,6 @@ function btr_config_strongarm() {
       ),
       'revision' => array(
         'custom_settings' => FALSE,
-      ),
-      'attachment' => array(
-        'custom_settings' => TRUE,
       ),
     ),
     'extra_fields' => array(
@@ -590,6 +584,34 @@ function btr_config_strongarm() {
   $strongarm->name = 'node_submitted_venue';
   $strongarm->value = 0;
   $export['node_submitted_venue'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_article_pattern';
+  $strongarm->value = 'articles/[node:title]';
+  $export['pathauto_node_article_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_band_pattern';
+  $strongarm->value = 'bands/[node:title]';
+  $export['pathauto_node_band_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_release_pattern';
+  $strongarm->value = 'releases/[node:title]';
+  $export['pathauto_node_release_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_venue_pattern';
+  $strongarm->value = 'venues/[node:title]';
+  $export['pathauto_node_venue_pattern'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */

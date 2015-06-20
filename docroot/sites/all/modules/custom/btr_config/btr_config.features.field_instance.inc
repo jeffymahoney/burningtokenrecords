@@ -124,7 +124,7 @@ function btr_config_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 2,
+        'weight' => 1,
       ),
       'teaser' => array(
         'label' => 'hidden',
@@ -167,13 +167,13 @@ function btr_config_field_default_field_instances() {
           'image_style' => '1280x720',
         ),
         'type' => 'image',
-        'weight' => 1,
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'hidden',
         'module' => 'image',
         'settings' => array(
-          'image_link' => '',
+          'image_link' => 'content',
           'image_style' => '128x72',
         ),
         'type' => 'image',
@@ -232,13 +232,13 @@ function btr_config_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'entityreference',
         'settings' => array(
-          'link' => FALSE,
+          'link' => 1,
         ),
         'type' => 'entityreference_label',
-        'weight' => 10,
+        'weight' => 2,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -279,7 +279,7 @@ function btr_config_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 9,
+        'weight' => 4,
       ),
       'teaser' => array(
         'label' => 'hidden',
@@ -324,14 +324,9 @@ function btr_config_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'hidden',
-        'module' => 'title',
-        'settings' => array(
-          'title_class' => '',
-          'title_link' => '',
-          'title_style' => 'h1',
-        ),
-        'type' => 'title_linked',
-        'weight' => 0,
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 3,
       ),
       'teaser' => array(
         'label' => 'hidden',
@@ -914,13 +909,6 @@ function btr_config_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
-      'attachment' => array(
-        'label' => 'hidden',
-        'module' => 'text',
-        'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 1,
-      ),
       'default' => array(
         'label' => 'hidden',
         'module' => 'text',
@@ -968,16 +956,6 @@ function btr_config_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
-      'attachment' => array(
-        'label' => 'hidden',
-        'module' => 'image',
-        'settings' => array(
-          'image_link' => '',
-          'image_style' => '1280x720',
-        ),
-        'type' => 'image',
-        'weight' => 0,
-      ),
       'default' => array(
         'label' => 'hidden',
         'module' => 'image',
@@ -1060,12 +1038,6 @@ function btr_config_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
-      'attachment' => array(
-        'label' => 'hidden',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 5,
-      ),
       'default' => array(
         'label' => 'hidden',
         'settings' => array(),
@@ -1119,12 +1091,6 @@ function btr_config_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
-      'attachment' => array(
-        'label' => 'hidden',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 2,
-      ),
       'default' => array(
         'label' => 'hidden',
         'module' => 'title',
