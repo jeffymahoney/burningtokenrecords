@@ -5,6 +5,15 @@
  * Adds favicon and other information to the <head>.
  */
 function btr_theme_preprocess_html(&$variables) {
+  _btr_theme_preprocess_html_icons($variables);
+}
+
+/**
+ * Adds favicons and other icons to the BTR theme.
+ *
+ * @param $variables array Variables from the theme_html preprocessor.
+ */
+function _btr_theme_preprocess_html_icons(&$variables) {
   // Adds Apple touch icons.
   $theme_path = base_path() . drupal_get_path('theme', 'btr_theme');
   $apple_touch_icon_sizes = array(
