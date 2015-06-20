@@ -8,6 +8,9 @@
  * Implements hook_ctools_plugin_api().
  */
 function btr_config_ctools_plugin_api($module = NULL, $api = NULL) {
+  if ($module == "backup_migrate" && $api == "backup_migrate_exportables") {
+    return array("version" => "1");
+  }
   if ($module == "ds" && $api == "ds") {
     return array("version" => "1");
   }
