@@ -18,6 +18,17 @@ function btr_config_filter_default_formats() {
     'status' => 1,
     'weight' => 0,
     'filters' => array(
+      'video_filter' => array(
+        'weight' => -1,
+        'status' => 1,
+        'settings' => array(
+          'video_filter_width' => 400,
+          'video_filter_height' => 400,
+          'video_filter_autoplay' => 1,
+          'video_filter_related' => 1,
+          'video_filter_html5' => 1,
+        ),
+      ),
       'image_resize_filter' => array(
         'weight' => 0,
         'status' => 1,

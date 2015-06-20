@@ -20,6 +20,7 @@ dependencies[] = taxonomy
 dependencies[] = text
 dependencies[] = title
 dependencies[] = transliteration
+dependencies[] = video_filter
 dependencies[] = views
 dependencies[] = wysiwyg
 features[ctools][] = ds:ds:1
