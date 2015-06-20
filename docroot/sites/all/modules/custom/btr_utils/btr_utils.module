@@ -7,5 +7,5 @@
  * Implements hook_video_filter_video_alter().
  */
 function hook_video_filter_video_alter(&$video) {
-  
+
 }
