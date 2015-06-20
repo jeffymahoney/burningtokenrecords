@@ -1,0 +1,4 @@
+name = BTR Utilities
+description = General Configuration for Burning Token Records
+core = 7.x
+package = Burning Token Records

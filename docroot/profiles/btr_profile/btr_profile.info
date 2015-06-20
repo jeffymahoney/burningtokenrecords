@@ -28,6 +28,7 @@ dependencies[] = taxonomy
 
 dependencies[] = btr_config
 dependencies[] = btr_permissions
+dependencies[] = btr_utils
 
 ;
 ; Contrib
