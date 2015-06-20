@@ -631,6 +631,56 @@ function btr_config_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-band-field_releases'
+  $field_instances['node-band-field_releases'] = array(
+    'bundle' => 'band',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'entityreference',
+        'settings' => array(
+          'links' => 0,
+          'view_mode' => 'default',
+        ),
+        'type' => 'entityreference_entity_view',
+        'weight' => 10,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'fences_wrapper' => 'div',
+    'field_name' => 'field_releases',
+    'label' => 'Releases',
+    'required' => 0,
+    'settings' => array(
+      'behaviors' => array(
+        'taxonomy-index' => array(
+          'status' => TRUE,
+        ),
+      ),
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'entityreference',
+      'settings' => array(
+        'match_operator' => 'CONTAINS',
+        'path' => '',
+        'size' => 60,
+      ),
+      'type' => 'entityreference_autocomplete',
+      'weight' => 5,
+    ),
+  );
+
   // Exported field_instance: 'node-band-field_teaser'
   $field_instances['node-band-field_teaser'] = array(
     'bundle' => 'band',
@@ -1157,6 +1207,7 @@ function btr_config_field_default_field_instances() {
   t('Image ratio should be 16x9.
 1280X720 is optimal.');
   t('References');
+  t('Releases');
   t('Teaser');
   t('Title');
   t('Title Text');
