@@ -117,7 +117,8 @@ function btr_config_field_default_field_instances() {
     'bundle' => 'article',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Snippets:<br>
+&lt;div style="display:inline-block"&gt;Inline Block&lt;/div&gt;',
     'display' => array(
       'default' => array(
         'label' => 'hidden',
@@ -134,17 +135,25 @@ function btr_config_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
+    'fences_wrapper' => 'div',
     'field_name' => 'body',
     'label' => 'Body',
-    'required' => FALSE,
+    'required' => 0,
     'settings' => array(
-      'display_summary' => TRUE,
+      'display_summary' => 1,
       'text_processing' => 1,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
+      'active' => 1,
       'module' => 'text',
       'settings' => array(
+        'maxlength_js' => '',
+        'maxlength_js_enforce' => 0,
+        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+        'maxlength_js_label_summary' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+        'maxlength_js_summary' => '',
+        'maxlength_js_truncate_html' => 0,
         'rows' => 20,
         'summary_rows' => 5,
       ),
@@ -525,7 +534,8 @@ function btr_config_field_default_field_instances() {
     'bundle' => 'band',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Snippets:<br>
+&lt;div style="display:inline-block"&gt;Inline Block&lt;/div&gt;',
     'display' => array(
       'default' => array(
         'label' => 'hidden',
@@ -542,17 +552,25 @@ function btr_config_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
+    'fences_wrapper' => 'div',
     'field_name' => 'body',
     'label' => 'Body',
-    'required' => FALSE,
+    'required' => 0,
     'settings' => array(
-      'display_summary' => TRUE,
+      'display_summary' => 1,
       'text_processing' => 1,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
+      'active' => 1,
       'module' => 'text',
       'settings' => array(
+        'maxlength_js' => '',
+        'maxlength_js_enforce' => 0,
+        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+        'maxlength_js_label_summary' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+        'maxlength_js_summary' => '',
+        'maxlength_js_truncate_html' => 0,
         'rows' => 20,
         'summary_rows' => 5,
       ),
@@ -1200,6 +1218,8 @@ function btr_config_field_default_field_instances() {
 1280X720 is optimal.');
   t('References');
   t('Releases');
+  t('Snippets:<br>
+&lt;div style="display:inline-block"&gt;Inline Block&lt;/div&gt;');
   t('Teaser');
   t('Title');
   t('Title Text');
