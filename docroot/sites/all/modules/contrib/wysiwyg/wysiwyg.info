@@ -10,8 +10,8 @@ files[] = wysiwyg.module
 files[] = tests/wysiwyg.test
 
 ; Information added by Drupal.org packaging script on 2015-06-20
-version = "7.x-2.2+59-dev"
+version = "7.x-2.2+60-dev"
 core = "7.x"
 project = "wysiwyg"
-datestamp = "1434816487"
+datestamp = "1434841086"
 
