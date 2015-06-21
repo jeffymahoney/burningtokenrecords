@@ -47,6 +47,9 @@ function btr_config_wysiwyg_default_profiles() {
           'Scayt' => 1,
           'Templates' => 1,
         ),
+        'video_filter' => array(
+          'video_filter' => 1,
+        ),
         'drupal' => array(
           'media' => 1,
         ),
@@ -61,7 +64,7 @@ function btr_config_wysiwyg_default_profiles() {
       'css_path' => '',
       'stylesSet' => '',
       'block_formats' => 'p,address,pre,h1,h2,h3,h4,h5,h6,div',
-      'advanced__active_tab' => 'edit-css',
+      'advanced__active_tab' => 'edit-paste',
       'forcePasteAsPlainText' => 0,
     ),
     'rdf_mapping' => array(),
