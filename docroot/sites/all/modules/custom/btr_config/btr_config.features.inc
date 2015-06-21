@@ -62,12 +62,22 @@ function btr_config_image_default_styles() {
     'label' => '128x72',
     'effects' => array(
       3 => array(
-        'name' => 'image_scale_and_crop',
+        'name' => 'image_scale',
+        'data' => array(
+          'width' => '',
+          'height' => 72,
+          'upscale' => 0,
+        ),
+        'weight' => -10,
+      ),
+      2 => array(
+        'name' => 'image_scale',
         'data' => array(
           'width' => 128,
-          'height' => 72,
+          'height' => '',
+          'upscale' => 0,
         ),
-        'weight' => 1,
+        'weight' => -9,
       ),
     ),
   );
