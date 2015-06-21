@@ -1,0 +1,8 @@
+/**
+ * @file btr-citations.css
+ * This is added to node forms to hide the citations fields since they are updated 
+ *   automatically on node save anyway.
+ */
+.field-type-btr-citations {
+  display: none;
+}

@@ -1,0 +1,427 @@
+<?php
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter();
+ */
+function btr_citations_form_node_form_alter(&$form, &$form_state, $form_id) {
+  drupal_add_css(drupal_get_path('module', 'btr_citations') . '/btr-citations.css');
+}
+
+/**
+ * Implements hook_theme().
+ */
+function btr_citations_theme() {
+  return array(
+    'btr_citations' => array(
+      'render element' => 'field',
+      'template' => 'btr-citations'
+    ),
+    'btr_citation_external' => array(
+      'variables' => array('link' => '', 'link_text' => ''),
+      'template' => 'btr-citation--external'
+    ),
+    'btr_citation_internal_misc' => array(
+      'variables' => array(
+        'link' => '',
+        'link_text' => '',
+        'link_attributes' => array()
+      ),
+      'template' => 'btr-citation--internal-misc'
+    ),
+    'btr_citation_internal_node' => array(
+      'variables' => array('nid' => NULL, 'link_attributes' => array()),
+      'template' => 'btr-citation--internal-node'
+    ),
+  );
+}
+
+/**
+ * Provide extra variables to btr-citations.tpl.php
+ */
+function template_preprocess_btr_citations(&$variables) {
+  $citations = $variables['field']['#items'];
+  $btrCitations = new btrCitations($citations);
+  $variables['citations'] = $btrCitations->theme();
+}
+
+/**
+ * Provide extra variables to btr-citations-internal-node.tpl.php
+ */
+function template_preprocess_btr_citation_internal_node(&$variables) {
+  $nid = $variables['nid'];
+  $link_attributes = $variables['link_attributes'];
+  $variables['wrapper'] = $wrapper = entity_metadata_wrapper('node', $nid);
+  $variables['title'] = filter_xss($wrapper->title->value());
+  $variables['link'] = l($variables['title'], 'node/' . $nid, $link_attributes);
+  $variables['created_posix'] = $created_posix = $wrapper->created->value();
+  $variables['created_display'] = date('j M Y', $created_posix);
+  $variables['created_datetime'] = date('Y-m-d', $created_posix);
+}
+
+/**
+ * Implements hook_node_presave();
+ * Sets and sanitizes btr_citation fields for node types that have a btr_citation field
+ */
+function btr_citations_node_presave($node) {
+  $node_type = $node->type;
+  $bundles_serialized = variable_get('btr_citations_bundles', '');
+  if (!empty($bundles_serialized)) {
+    $bundles = unserialize($bundles_serialized);
+  }
+  else {
+    $bundles = array();
+  }
+
+  // Returns early if this node type doesn't have a btr_citations field.
+  if (!in_array($node_type, $bundles)) {
+    return;
+  }
+
+  // Gets the language of the node.
+  $lang = isset($node->language) ? $node->language : 'und';
+  // Gets the insecure base_url of the site.
+  $base_insecure_url = $GLOBALS['base_insecure_url'];
+  // Gets the secure base_url of the site
+  $base_secure_url = $GLOBALS['base_secure_url'];
+  // Gets field information for this node type.
+  $field_info = field_info_instances('node', $node_type);
+
+  // Resets the field.
+  $node->field_btr_citations = array();
+
+  $nids = array();
+  foreach ($field_info as $tmp_field => $value) {
+    $widget = isset($value['widget']['type']) ? $value['widget']['type'] : FALSE;
+    if (!$widget) {
+      continue;
+    }
+    switch ($widget) {
+      // Only processes text areas.
+      case 'text_textarea_with_summary':
+      case 'text_textarea':
+        $html = isset($node->{$tmp_field}[$lang][0]['value']) ? $node->{$tmp_field}[$lang][0]['value'] : '';
+        if (empty($html)) {
+          break;
+        }
+        // Changes absolute URIs into relative URIs.
+        $html = str_replace($base_insecure_url, '', $html);
+        $html = str_replace($base_secure_url, '', $html);
+        $node->{$tmp_field}[$lang][0]['value'] = $html;
+        // Parses each text area for tags.
+        $dom = new DOMDocument;
+        libxml_use_internal_errors(TRUE);
+        $dom->loadHTML('<?xml encoding="UTF-8">' . $html);
+        libxml_clear_errors();
+        // Stores all links in an array that will be used to avoid duplicate
+        // citations.
+        $hrefs = array();
+
+        foreach ($dom->getElementsByTagName('a') as $domnode) {
+          // Gets href attribute.
+          if (!$domnode->hasAttribute('href')) {
+            continue;
+          }
+          $tmp_href = $domnode->getAttribute('href');
+          if (empty($tmp_href)) {
+            continue;
+          }
+          // If link has already been processed, continue to avoid duplicate
+          // citations
+          if (in_array($tmp_href, $hrefs)) {
+            continue;
+          }
+          else {
+            $hrefs[] = $tmp_href;
+          }
+          // Gets inner text.
+          $domnode_value = isset($domnode->nodeValue) ? $domnode->nodeValue : '';
+          // Truncates the inner text to 2048 chars, the max for this field.
+          $domnode_value = mb_substr($domnode_value, 0, 2048);
+          // Gets rel attribute.
+          $tmp_rel = $domnode->hasAttribute('rel') ? $domnode->getAttribute('rel') : NULL;
+
+          // Saves external citation.
+          if (mb_strpos($tmp_href, 'http') === 0) {
+            $tmp_citation = array(
+              'external_uri' => check_url($tmp_href),
+              'link_text' => filter_xss($domnode_value),
+              'link_rel' => check_plain($tmp_rel),
+            );
+            $node->field_btr_citations[$lang][] = $tmp_citation;
+          }
+          // Saves internal citations.
+          else {
+            $tmp_int_href = btr_link_parse_url($tmp_href);
+
+            // Trims leading slash in preparation to get drupal internal path.
+            $tmp_int_path = urldecode(ltrim($tmp_int_href['url'], '/'));
+
+
+            // Gets drupal internal path.
+            $tmp_path = drupal_lookup_path('source', $tmp_int_path);
+            // Extracts node id from path.
+            $tmp_nid = mb_strpos($tmp_path, 'node/') === 0 ? str_replace('node/', '', $tmp_path) : NULL;
+            if (!is_null($tmp_nid)) {
+              // Node id is stored as an integer.
+              $tmp_nid = (int) $tmp_nid;
+            }
+            if (is_numeric($tmp_nid)) {
+              $tmp_wrapper = entity_metadata_wrapper('node', $tmp_nid);
+              $tmp_node_type = $tmp_wrapper->getBundle();
+            }
+            else {
+              $tmp_node_type = NULL;
+            }
+
+            // Saves internal citation.
+            $link_attributes = $tmp_int_href;
+            unset($link_attributes['url']);
+
+            $tmp_citation = array(
+              'internal_uri' => check_url($tmp_int_href['url']),
+              'link_text' => filter_xss($domnode_value),
+              'link_rel' => check_plain($tmp_rel),
+              'node_type' => $tmp_node_type,
+              'nid' => $tmp_nid,
+              'link_attributes' => serialize($link_attributes),
+            );
+
+            if (!isset($nids[$tmp_nid])) {
+              $node->field_btr_citations[$lang][] = $tmp_citation;
+            }
+            $nids[$tmp_nid] = TRUE;
+          }
+        }
+        break;
+    }
+  }
+}
+
+/**
+ * A version of parse_url that works with relative urls, modelled off of _link_parse_url()
+ * in the link module but this function handles multibyte characters.
+ *
+ * @param string $url
+ *   URL to parse.
+ *
+ * @return Array
+ *   Array of url pieces - only 'url', 'query', and 'fragment'.
+ */
+function btr_link_parse_url($url) {
+  $url_parts = array();
+  // Separate out the anchor, if any.
+  if (mb_strpos($url, '#') !== FALSE) {
+    $url_parts['fragment'] = mb_substr($url, mb_strpos($url, '#') + 1);
+    $url = mb_substr($url, 0, mb_strpos($url, '#'));
+  }
+  // Separate out the query string, if any.
+  if (mb_strpos($url, '?') !== FALSE) {
+    $query = mb_substr($url, mb_strpos($url, '?') + 1);
+    parse_str($query, $query_array);
+    // See http://drupal.org/node/1710578
+    foreach ($query_array as $key => &$value) {
+      if ($value === '' && FALSE === mb_strpos($query, $key . '=')) {
+        $value = NULL;
+      }
+    }
+    $url_parts['query'] = $query_array;
+    $url = mb_substr($url, 0, mb_strpos($url, '?'));
+  }
+  $url_parts['url'] = $url;
+  return $url_parts;
+}
+
+
+/**
+ * Implements hook_field_create_instance().
+ */
+function btr_citations_field_create_instance($instance) {
+  _btr_citations_set_citation_bundles($instance);
+}
+
+/**
+ * Implements hook_field_delete_instance().
+ */
+function btr_citations_field_delete_instance($instance) {
+  _btr_citations_set_citation_bundles($instance);
+}
+
+/**
+ * Implements hook_field_update_instance().
+ */
+function btr_citations_field_update_instance($instance) {
+  _btr_citations_set_citation_bundles($instance);
+}
+
+/**
+ * Helper function for field instance CRUD
+ * @param array $instance
+ * @see field_create_instance() for details
+ */
+function _btr_citations_set_citation_bundles($instance) {
+  $field_name = $instance['field_name'];
+  $field_info = field_info_field($field_name);
+  $type = $field_info['type'];
+  if ($type != 'btr_citations') {
+    return;
+  }
+  $bundles = db_query(
+    "SELECT `bundle`
+      FROM `field_config_instance`, `field_config`
+      WHERE `field_config_instance`.`field_name` = `field_config`.`field_name`
+      AND `field_config`.`type` = 'btr_citations'
+      AND `field_config_instance`.`deleted` = 0")->fetchAll(PDO::FETCH_UNIQUE);
+  $bundles = array_keys($bundles);
+  $bundles = serialize($bundles);
+  variable_set('btr_citations_bundles', $bundles);
+}
+
+#######################################
+# FIELD API FUNCTIONS
+# Field configuration for BTR Citations
+#######################################
+
+/**
+ * Implements hook_field_info().
+ */
+function btr_citations_field_info() {
+  return array(
+    'btr_citations' => array(
+      'label' => t('BTR Citations'),
+      'description' => t("This field keeps track of citations in text areas"),
+      'settings' => array(
+        'allowed_values' => array(),
+        'allowed_values_function' => ''
+      ),
+      'default_widget' => 'btr_citations',
+      'default_formatter' => 'btr_citations',
+    ),
+  );
+}
+
+/**
+ * Implements hook_field_validate().
+ * Validation is handled in btr_citations_node_presave()
+ */
+//function btr_citations_field_validate($entity_type, $entity, $field, $instance, $langcode, $items, &$errors) {
+//}
+
+/**
+ * Implements hook_field_is_empty().
+ */
+function btr_citations_field_is_empty($item, $field) {
+  $temp = array_keys($field['columns']);
+  $key = array_shift($temp);
+  return empty($item[$key]);
+}
+
+/**
+ * Implements hook_field_widget_info().
+ */
+function btr_citations_field_widget_info() {
+  return array(
+    'btr_citations' => array(
+      'label' => t('BTR Citations'),
+      'field types' => array('btr_citations'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_field_widget_form().
+ */
+function btr_citations_field_widget_form(&$form, &$form_state, $field, $instance, $langcode, $items, $delta, $element) {
+  switch ($instance['widget']['type']) {
+    case 'btr_citations':
+      $value = isset($items[$delta]['external_uri']) ? $items[$delta]['external_uri'] : '';
+      $element['external_uri'] = array(
+        '#attributes' => array('class' => array('edit-btr-citation-external-uri')),
+        '#type' => 'textfield',
+        '#size' => 60,
+        '#maxlength' => 2048,
+        '#title' => 'External URI',
+        '#default_value' => $value,
+      );
+
+      $value = isset($items[$delta]['internal_uri']) ? $items[$delta]['internal_uri'] : '';
+      $element['internal_uri'] = array(
+        '#attributes' => array('class' => array('edit-btr-citation-internal-uri')),
+        '#type' => 'textfield',
+        '#size' => 60,
+        '#maxlength' => 2048,
+        '#title' => 'Internal URI',
+        '#default_value' => $value,
+      );
+
+      $value = isset($items[$delta]['link_rel']) ? $items[$delta]['link_rel'] : '';
+      $element['link_rel'] = array(
+        '#attributes' => array('class' => array('edit-btr-citation-link-rel')),
+        '#type' => 'textfield',
+        '#size' => 60,
+        '#maxlength' => 2048,
+        '#title' => 'Link Relationship',
+        '#default_value' => $value,
+      );
+
+      $value = isset($items[$delta]['link_text']) ? $items[$delta]['link_text'] : '';
+      $element['link_text'] = array(
+        '#attributes' => array('class' => array('edit-btr-citation-link-text')),
+        '#type' => 'textfield',
+        '#size' => 60,
+        '#maxlength' => 2048,
+        '#title' => 'Link Text',
+        '#default_value' => $value,
+      );
+
+      $value = isset($items[$delta]['nid']) ? $items[$delta]['nid'] : '';
+      $element['nid'] = array(
+        '#attributes' => array('class' => array('edit-btr-citation-nid')),
+        '#type' => 'textfield',
+        '#size' => 60,
+        '#maxlength' => 12,
+        '#title' => 'Node ID',
+        '#default_value' => $value,
+      );
+
+      $value = isset($items[$delta]['node_type']) ? $items[$delta]['node_type'] : '';
+      $element['node_type'] = array(
+        '#attributes' => array('class' => array('edit-btr-citation-node-type')),
+        '#type' => 'textfield',
+        '#size' => 32,
+        '#maxlength' => 32,
+        '#title' => 'Node Type',
+        '#default_value' => $value,
+      );
+
+      break;
+  }
+  return $element;
+}
+
+/**
+ * Implements hook_field_formatter_info().
+ */
+function btr_citations_field_formatter_info() {
+  return array(
+    'btr_citations' => array(
+      'label' => t('default'),
+      'field types' => array('btr_citations'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_field_formatter_view().
+ */
+function btr_citations_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
+  $element = array();
+
+  switch ($display['type']) {
+    case 'btr_citations':
+      $element = array(
+        '#theme' => 'btr_citations',
+      );
+      break;
+  }
+  return $element;
+}

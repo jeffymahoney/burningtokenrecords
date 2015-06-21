@@ -1,0 +1,57 @@
+<?php
+/**
+ * Implements hook_field_schema().
+ */
+function btr_citations_field_schema($field) {
+  if ($field['type'] === 'btr_citations') {
+    return array(
+      'columns' => array(
+        'external_uri' => array(
+          'type' => 'varchar',
+          'length' => '2048',
+          'not null' => FALSE,
+          'default' => '',
+        ),
+        'internal_uri' => array(
+          'type' => 'varchar',
+          'length' => '2048',
+          'not null' => FALSE,
+          'default' => '',
+        ),
+        'link_text' => array(
+          'type' => 'varchar',
+          'length' => '2048',
+          'not null' => FALSE,
+          'default' => '',
+        ),
+        'link_rel' => array(
+          'type' => 'varchar',
+          'length' => '2048',
+          'not null' => FALSE,
+          'default' => '',
+        ),
+        'nid' => array(
+          'description' => 'The primary identifier for a node.',
+          'type' => 'int',
+          'unsigned' => TRUE,
+          'not null' => FALSE,
+          'default' => NULL,
+        ),
+        'node_type' => array(
+          'description' => 'The type of node.',
+          'type' => 'varchar',
+          'length' => '32',
+          'not null' => FALSE,
+          'default' => '',
+        ),
+        'link_attributes' => array(
+          'type' => 'text',
+          'size' => 'medium',
+          'not null' => FALSE,
+          'default' => NULL,
+        ),
+      ),
+      'indexes' => array(),
+    );
+  }
+}

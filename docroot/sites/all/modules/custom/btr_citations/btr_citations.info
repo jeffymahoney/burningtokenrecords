@@ -1,0 +1,7 @@
+name = BTR Citations
+description = A module to handle automatic citations
+core = 7.x
+version = 7.x-1.0
+package = Burning Token Records
+files[] = btrCitations.php
+dependencies[]= link
