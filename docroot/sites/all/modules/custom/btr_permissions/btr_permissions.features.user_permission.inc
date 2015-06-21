@@ -37,6 +37,24 @@ function btr_permissions_user_default_permissions() {
     'module' => 'views',
   );
 
+  // Exported permission: 'access backup and migrate'.
+  $permissions['access backup and migrate'] = array(
+    'name' => 'access backup and migrate',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'backup_migrate',
+  );
+
+  // Exported permission: 'access backup files'.
+  $permissions['access backup files'] = array(
+    'name' => 'access backup files',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'backup_migrate',
+  );
+
   // Exported permission: 'access content'.
   $permissions['access content'] = array(
     'name' => 'access content',
@@ -127,6 +145,15 @@ function btr_permissions_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'system',
+  );
+
+  // Exported permission: 'administer backup and migrate'.
+  $permissions['administer backup and migrate'] = array(
+    'name' => 'administer backup and migrate',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'backup_migrate',
   );
 
   // Exported permission: 'administer block classes'.
@@ -393,14 +420,18 @@ function btr_permissions_user_default_permissions() {
   // Exported permission: 'create article content'.
   $permissions['create article content'] = array(
     'name' => 'create article content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'create band content'.
   $permissions['create band content'] = array(
     'name' => 'create band content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'node',
   );
 
@@ -416,7 +447,9 @@ function btr_permissions_user_default_permissions() {
   // Exported permission: 'create release content'.
   $permissions['create release content'] = array(
     'name' => 'create release content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'node',
   );
 
@@ -432,7 +465,9 @@ function btr_permissions_user_default_permissions() {
   // Exported permission: 'delete any article content'.
   $permissions['delete any article content'] = array(
     'name' => 'delete any article content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'node',
   );
 
@@ -448,7 +483,9 @@ function btr_permissions_user_default_permissions() {
   // Exported permission: 'delete any band content'.
   $permissions['delete any band content'] = array(
     'name' => 'delete any band content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'node',
   );
 
@@ -473,7 +510,9 @@ function btr_permissions_user_default_permissions() {
   // Exported permission: 'delete any release content'.
   $permissions['delete any release content'] = array(
     'name' => 'delete any release content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'node',
   );
 
@@ -486,10 +525,21 @@ function btr_permissions_user_default_permissions() {
     'module' => 'file_entity',
   );
 
+  // Exported permission: 'delete backup files'.
+  $permissions['delete backup files'] = array(
+    'name' => 'delete backup files',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'backup_migrate',
+  );
+
   // Exported permission: 'delete own article content'.
   $permissions['delete own article content'] = array(
     'name' => 'delete own article content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'node',
   );
 
@@ -505,7 +555,9 @@ function btr_permissions_user_default_permissions() {
   // Exported permission: 'delete own band content'.
   $permissions['delete own band content'] = array(
     'name' => 'delete own band content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'node',
   );
 
@@ -530,7 +582,9 @@ function btr_permissions_user_default_permissions() {
   // Exported permission: 'delete own release content'.
   $permissions['delete own release content'] = array(
     'name' => 'delete own release content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'node',
   );
 
@@ -636,7 +690,9 @@ function btr_permissions_user_default_permissions() {
   // Exported permission: 'edit any article content'.
   $permissions['edit any article content'] = array(
     'name' => 'edit any article content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'node',
   );
 
@@ -652,7 +708,9 @@ function btr_permissions_user_default_permissions() {
   // Exported permission: 'edit any band content'.
   $permissions['edit any band content'] = array(
     'name' => 'edit any band content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'node',
   );
 
@@ -677,7 +735,9 @@ function btr_permissions_user_default_permissions() {
   // Exported permission: 'edit any release content'.
   $permissions['edit any release content'] = array(
     'name' => 'edit any release content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'node',
   );
 
@@ -693,7 +753,9 @@ function btr_permissions_user_default_permissions() {
   // Exported permission: 'edit own article content'.
   $permissions['edit own article content'] = array(
     'name' => 'edit own article content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'node',
   );
 
@@ -709,7 +771,9 @@ function btr_permissions_user_default_permissions() {
   // Exported permission: 'edit own band content'.
   $permissions['edit own band content'] = array(
     'name' => 'edit own band content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'node',
   );
 
@@ -734,7 +798,9 @@ function btr_permissions_user_default_permissions() {
   // Exported permission: 'edit own release content'.
   $permissions['edit own release content'] = array(
     'name' => 'edit own release content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'node',
   );
 
@@ -783,6 +849,15 @@ function btr_permissions_user_default_permissions() {
     'module' => 'pathauto',
   );
 
+  // Exported permission: 'perform backup'.
+  $permissions['perform backup'] = array(
+    'name' => 'perform backup',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'backup_migrate',
+  );
+
   // Exported permission: 'rename features'.
   $permissions['rename features'] = array(
     'name' => 'rename features',
@@ -790,6 +865,15 @@ function btr_permissions_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'features',
+  );
+
+  // Exported permission: 'restore from backup'.
+  $permissions['restore from backup'] = array(
+    'name' => 'restore from backup',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'backup_migrate',
   );
 
   // Exported permission: 'revert revisions'.
@@ -829,7 +913,9 @@ function btr_permissions_user_default_permissions() {
   // Exported permission: 'use text format full_html'.
   $permissions['use text format full_html'] = array(
     'name' => 'use text format full_html',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'filter',
   );
 
