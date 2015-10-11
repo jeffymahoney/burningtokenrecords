@@ -145,6 +145,7 @@ features[variable][] = node_submitted_video
 features[variable][] = pathauto_node_article_pattern
 features[variable][] = pathauto_node_band_pattern
 features[variable][] = pathauto_node_release_pattern
+features[variable][] = pathauto_node_video_pattern
 features[variable][] = save_continue_video
 features[variable][] = site_frontpage
 features[variable][] = theme_btr_theme_settings
