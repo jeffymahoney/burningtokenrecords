@@ -289,7 +289,7 @@ function theme_video_filter_flash($variables) {
     $attributes = drupal_attributes($video['attributes']);
   }
 
-  $output .= '<object class="' . implode(' ', $classes) . '" type="application/x-shockwave-flash" ';
+  $output .= '<div class="video-filter"><object class="' . implode(' ', $classes) . '" type="application/x-shockwave-flash" ';
 
   $output .= 'width="' . $video['width'] . '" height="' . $video['height'] . '" data="' . $video['source'] . '" ' . $attributes . '>' . "\n";
 
@@ -305,7 +305,7 @@ function theme_video_filter_flash($variables) {
     $output .= '  <param name="' . $name . '" value="' . $value . '" />' . "\n";
   }
 
-  $output .= '</object>' . "\n";
+  $output .= '</object></div>' . "\n";
 
   return $output;
 }
@@ -323,7 +323,7 @@ function theme_video_filter_iframe($variables) {
     $attributes = drupal_attributes($video['attributes']);
   }
 
-  $output = '<iframe src="' . $video['source'] . '" width="' . $video['width'] . '" height="' . $video['height'] . '" class="' . implode(' ', $classes) . '" frameborder="0"' . $attributes . '></iframe>';
+  $output = '<div class="video-filter"><iframe src="' . $video['source'] . '" width="' . $video['width'] . '" height="' . $video['height'] . '" class="' . implode(' ', $classes) . '" frameborder="0"' . $attributes . '></iframe></div>';
 
   return $output;
 }
@@ -558,6 +558,25 @@ function _video_filter_instructions_form() {
   );
 
   return $form;
+}
+
+/**
+ * Implements hook_ckeditor_plugin().
+ */
+function video_filter_ckeditor_plugin() {
+  $plugins = array();
+  $plugins['video_filter'] = array(
+    'name' => 'video_filter',
+    'desc' => t('Plugin to directly embed videos with the video filter module.'),
+    'path' => drupal_get_path('module', 'video_filter') . '/editors/ckeditor/',
+    'buttons' => array(
+      'video_filter' => array(
+        'label' => t('Video filter'),
+        'icon' => 'video_filter.png',
+      ),
+    ),
+  );
+  return $plugins;
 }
 
 function video_filter_wysiwyg_plugin($editor, $version) {
