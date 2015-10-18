@@ -689,12 +689,9 @@ function btr_config_field_default_field_instances() {
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'entityreference',
+      'module' => 'inline_entity_form',
       'settings' => array(
         'fields' => array(),
-        'match_operator' => 'CONTAINS',
-        'path' => '',
-        'size' => 60,
         'type_settings' => array(
           'allow_existing' => 1,
           'allow_new' => 1,
@@ -705,7 +702,7 @@ function btr_config_field_default_field_instances() {
           'override_labels' => 1,
         ),
       ),
-      'type' => 'entityreference_autocomplete',
+      'type' => 'inline_entity_form',
       'weight' => 5,
     ),
   );
@@ -788,12 +785,9 @@ function btr_config_field_default_field_instances() {
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'entityreference',
+      'module' => 'inline_entity_form',
       'settings' => array(
         'fields' => array(),
-        'match_operator' => 'CONTAINS',
-        'path' => '',
-        'size' => 60,
         'type_settings' => array(
           'allow_existing' => 1,
           'allow_new' => 1,
@@ -804,7 +798,7 @@ function btr_config_field_default_field_instances() {
           'override_labels' => 1,
         ),
       ),
-      'type' => 'entityreference_autocomplete',
+      'type' => 'inline_entity_form',
       'weight' => 6,
     ),
   );
