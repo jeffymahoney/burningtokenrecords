@@ -10,7 +10,7 @@
 function btr_config_field_default_field_bases() {
   $field_bases = array();
 
-  // Exported field_base: 'body'
+  // Exported field_base: 'body'.
   $field_bases['body'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -31,7 +31,7 @@ function btr_config_field_default_field_bases() {
     'type' => 'text_with_summary',
   );
 
-  // Exported field_base: 'field_file_image_alt_text'
+  // Exported field_base: 'field_file_image_alt_text'.
   $field_bases['field_file_image_alt_text'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -52,7 +52,7 @@ function btr_config_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_file_image_title_text'
+  // Exported field_base: 'field_file_image_title_text'.
   $field_bases['field_file_image_title_text'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -73,7 +73,7 @@ function btr_config_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_image'
+  // Exported field_base: 'field_image'.
   $field_bases['field_image'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -95,7 +95,7 @@ function btr_config_field_default_field_bases() {
     'type' => 'image',
   );
 
-  // Exported field_base: 'field_references'
+  // Exported field_base: 'field_references'.
   $field_bases['field_references'] = array(
     'active' => 1,
     'cardinality' => -1,
@@ -128,7 +128,7 @@ function btr_config_field_default_field_bases() {
     'type' => 'entityreference',
   );
 
-  // Exported field_base: 'field_releases'
+  // Exported field_base: 'field_releases'.
   $field_bases['field_releases'] = array(
     'active' => 1,
     'cardinality' => -1,
@@ -163,7 +163,7 @@ function btr_config_field_default_field_bases() {
     'type' => 'entityreference',
   );
 
-  // Exported field_base: 'field_teaser'
+  // Exported field_base: 'field_teaser'.
   $field_bases['field_teaser'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -182,7 +182,7 @@ function btr_config_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_video'
+  // Exported field_base: 'field_video'.
   $field_bases['field_video'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -205,7 +205,7 @@ function btr_config_field_default_field_bases() {
     'type' => 'file',
   );
 
-  // Exported field_base: 'field_videos'
+  // Exported field_base: 'field_videos'.
   $field_bases['field_videos'] = array(
     'active' => 1,
     'cardinality' => -1,
@@ -240,7 +240,7 @@ function btr_config_field_default_field_bases() {
     'type' => 'entityreference',
   );
 
-  // Exported field_base: 'title_field'
+  // Exported field_base: 'title_field'.
   $field_bases['title_field'] = array(
     'active' => 1,
     'cardinality' => 1,

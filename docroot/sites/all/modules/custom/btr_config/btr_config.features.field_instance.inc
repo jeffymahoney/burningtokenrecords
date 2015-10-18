@@ -10,7 +10,7 @@
 function btr_config_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'file-image-field_file_image_alt_text'
+  // Exported field_instance: 'file-image-field_file_image_alt_text'.
   $field_instances['file-image-field_file_image_alt_text'] = array(
     'bundle' => 'image',
     'default_value' => NULL,
@@ -61,7 +61,7 @@ function btr_config_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'file-image-field_file_image_title_text'
+  // Exported field_instance: 'file-image-field_file_image_title_text'.
   $field_instances['file-image-field_file_image_title_text'] = array(
     'bundle' => 'image',
     'default_value' => NULL,
@@ -112,7 +112,7 @@ function btr_config_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-article-body'
+  // Exported field_instance: 'node-article-body'.
   $field_instances['node-article-body'] = array(
     'bundle' => 'article',
     'default_value' => NULL,
@@ -162,7 +162,7 @@ function btr_config_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-article-field_image'
+  // Exported field_instance: 'node-article-field_image'.
   $field_instances['node-article-field_image'] = array(
     'bundle' => 'article',
     'deleted' => 0,
@@ -233,7 +233,7 @@ function btr_config_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-article-field_references'
+  // Exported field_instance: 'node-article-field_references'.
   $field_instances['node-article-field_references'] = array(
     'bundle' => 'article',
     'default_value' => NULL,
@@ -277,7 +277,7 @@ function btr_config_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-article-field_teaser'
+  // Exported field_instance: 'node-article-field_teaser'.
   $field_instances['node-article-field_teaser'] = array(
     'bundle' => 'article',
     'default_value' => NULL,
@@ -324,7 +324,7 @@ function btr_config_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-article-title_field'
+  // Exported field_instance: 'node-article-title_field'.
   $field_instances['node-article-title_field'] = array(
     'bundle' => 'article',
     'default_value' => NULL,
@@ -372,7 +372,7 @@ function btr_config_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-artist-body'
+  // Exported field_instance: 'node-artist-body'.
   $field_instances['node-artist-body'] = array(
     'bundle' => 'artist',
     'default_value' => NULL,
@@ -416,7 +416,7 @@ function btr_config_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-artist-field_image'
+  // Exported field_instance: 'node-artist-field_image'.
   $field_instances['node-artist-field_image'] = array(
     'bundle' => 'artist',
     'deleted' => 0,
@@ -484,7 +484,7 @@ function btr_config_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-artist-field_teaser'
+  // Exported field_instance: 'node-artist-field_teaser'.
   $field_instances['node-artist-field_teaser'] = array(
     'bundle' => 'artist',
     'default_value' => NULL,
@@ -529,7 +529,7 @@ function btr_config_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-band-body'
+  // Exported field_instance: 'node-band-body'.
   $field_instances['node-band-body'] = array(
     'bundle' => 'band',
     'default_value' => NULL,
@@ -579,7 +579,7 @@ function btr_config_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-band-field_image'
+  // Exported field_instance: 'node-band-field_image'.
   $field_instances['node-band-field_image'] = array(
     'bundle' => 'band',
     'deleted' => 0,
@@ -650,7 +650,7 @@ function btr_config_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-band-field_releases'
+  // Exported field_instance: 'node-band-field_releases'.
   $field_instances['node-band-field_releases'] = array(
     'bundle' => 'band',
     'default_value' => NULL,
@@ -689,18 +689,25 @@ function btr_config_field_default_field_instances() {
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'entityreference',
+      'module' => 'inline_entity_form',
       'settings' => array(
-        'match_operator' => 'CONTAINS',
-        'path' => '',
-        'size' => 60,
+        'fields' => array(),
+        'type_settings' => array(
+          'allow_existing' => 1,
+          'allow_new' => 1,
+          'delete_references' => 0,
+          'label_plural' => 'releases',
+          'label_singular' => 'release',
+          'match_operator' => 'CONTAINS',
+          'override_labels' => 1,
+        ),
       ),
-      'type' => 'entityreference_autocomplete',
+      'type' => 'inline_entity_form',
       'weight' => 5,
     ),
   );
 
-  // Exported field_instance: 'node-band-field_teaser'
+  // Exported field_instance: 'node-band-field_teaser'.
   $field_instances['node-band-field_teaser'] = array(
     'bundle' => 'band',
     'default_value' => NULL,
@@ -744,7 +751,7 @@ function btr_config_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-band-field_videos'
+  // Exported field_instance: 'node-band-field_videos'.
   $field_instances['node-band-field_videos'] = array(
     'bundle' => 'band',
     'default_value' => NULL,
@@ -778,18 +785,25 @@ function btr_config_field_default_field_instances() {
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'entityreference',
+      'module' => 'inline_entity_form',
       'settings' => array(
-        'match_operator' => 'CONTAINS',
-        'path' => '',
-        'size' => 60,
+        'fields' => array(),
+        'type_settings' => array(
+          'allow_existing' => 1,
+          'allow_new' => 1,
+          'delete_references' => 0,
+          'label_plural' => 'videos',
+          'label_singular' => 'video',
+          'match_operator' => 'CONTAINS',
+          'override_labels' => 1,
+        ),
       ),
-      'type' => 'entityreference_autocomplete',
+      'type' => 'inline_entity_form',
       'weight' => 6,
     ),
   );
 
-  // Exported field_instance: 'node-band-title_field'
+  // Exported field_instance: 'node-band-title_field'.
   $field_instances['node-band-title_field'] = array(
     'bundle' => 'band',
     'default_value' => NULL,
@@ -837,7 +851,7 @@ function btr_config_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-person-body'
+  // Exported field_instance: 'node-person-body'.
   $field_instances['node-person-body'] = array(
     'bundle' => 'person',
     'default_value' => NULL,
@@ -881,7 +895,7 @@ function btr_config_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-person-title_field'
+  // Exported field_instance: 'node-person-title_field'.
   $field_instances['node-person-title_field'] = array(
     'bundle' => 'person',
     'default_value' => NULL,
@@ -923,7 +937,7 @@ function btr_config_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-project-body'
+  // Exported field_instance: 'node-project-body'.
   $field_instances['node-project-body'] = array(
     'bundle' => 'project',
     'default_value' => NULL,
@@ -967,7 +981,7 @@ function btr_config_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-project-title_field'
+  // Exported field_instance: 'node-project-title_field'.
   $field_instances['node-project-title_field'] = array(
     'bundle' => 'project',
     'default_value' => NULL,
@@ -1009,7 +1023,7 @@ function btr_config_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-release-body'
+  // Exported field_instance: 'node-release-body'.
   $field_instances['node-release-body'] = array(
     'bundle' => 'release',
     'default_value' => NULL,
@@ -1057,7 +1071,7 @@ function btr_config_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-release-field_image'
+  // Exported field_instance: 'node-release-field_image'.
   $field_instances['node-release-field_image'] = array(
     'bundle' => 'release',
     'deleted' => 0,
@@ -1138,7 +1152,7 @@ function btr_config_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-release-field_teaser'
+  // Exported field_instance: 'node-release-field_teaser'.
   $field_instances['node-release-field_teaser'] = array(
     'bundle' => 'release',
     'default_value' => NULL,
@@ -1191,7 +1205,7 @@ function btr_config_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-release-title_field'
+  // Exported field_instance: 'node-release-title_field'.
   $field_instances['node-release-title_field'] = array(
     'bundle' => 'release',
     'default_value' => NULL,
@@ -1249,7 +1263,7 @@ function btr_config_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-video-body'
+  // Exported field_instance: 'node-video-body'.
   $field_instances['node-video-body'] = array(
     'bundle' => 'video',
     'default_value' => NULL,
@@ -1293,7 +1307,7 @@ function btr_config_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-video-field_video'
+  // Exported field_instance: 'node-video-field_video'.
   $field_instances['node-video-field_video'] = array(
     'bundle' => 'video',
     'deleted' => 0,
@@ -1303,17 +1317,10 @@ function btr_config_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'file_entity',
         'settings' => array(
-          'autoplay' => FALSE,
-          'controls' => TRUE,
-          'height' => NULL,
-          'loop' => FALSE,
-          'multiple_file_behavior' => 'tags',
-          'muted' => FALSE,
-          'preload' => '',
-          'width' => NULL,
+          'file_view_mode' => 'default',
         ),
-        'type' => 'file_video',
-        'weight' => 2,
+        'type' => 'file_rendered',
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -1362,7 +1369,7 @@ function btr_config_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-video-title_field'
+  // Exported field_instance: 'node-video-title_field'.
   $field_instances['node-video-title_field'] = array(
     'bundle' => 'video',
     'default_value' => NULL,
@@ -1373,7 +1380,7 @@ function btr_config_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 2,
       ),
       'teaser' => array(
         'label' => 'above',
