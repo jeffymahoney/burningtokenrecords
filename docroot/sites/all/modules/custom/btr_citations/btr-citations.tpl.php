@@ -10,9 +10,9 @@
  *  - array of rendered citations
  */
 ?>
-<section id="references" class="panel-pane">
-  <h1 class="pane-title">References</h1>
-  <?php if (!empty($citations)): ?>
+<?php if (!empty($citations)): ?>
+  <section id="references" class="panel-pane">
+    <h1 class="pane-title">References</h1>
     <?php
     foreach ($citations as $citation_title => $citation_set):
       switch ($citation_title):
@@ -34,7 +34,5 @@
         <?php endforeach; ?>
       </ul>
     <?php endforeach; ?>
-  <?php else: ?>
-    <p>No Available References</p>
-  <?php endif; ?>
-</section>
+  </section>
+<?php endif; ?>
