@@ -8,7 +8,7 @@
  * $link
  *  - the citation link
  * $title
- *  - the title of the paper node
+ *  - the title of the node
  * $created_datetime
  *  - the node creation date formatted for an HTML5 datetime attribute
  * $created_display
@@ -16,4 +16,3 @@
  */
 ?>
 <?php print $link; ?>
- <time class="entry-published" pubdate="" datetime="<?php print $created_datetime; ?>"><?php print $created_display; ?></time>

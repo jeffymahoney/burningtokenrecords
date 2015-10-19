@@ -162,6 +162,44 @@ function btr_config_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-article-field_btr_citations'.
+  $field_instances['node-article-field_btr_citations'] = array(
+    'bundle' => 'article',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'btr_citations',
+        'settings' => array(),
+        'type' => 'btr_citations',
+        'weight' => 5,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'fences_wrapper' => 'div',
+    'field_name' => 'field_btr_citations',
+    'label' => 'Citations',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'btr_citations',
+      'settings' => array(),
+      'type' => 'btr_citations',
+      'weight' => 6,
+    ),
+  );
+
   // Exported field_instance: 'node-article-field_image'.
   $field_instances['node-article-field_image'] = array(
     'bundle' => 'article',
@@ -230,50 +268,6 @@ function btr_config_field_default_field_instances() {
       ),
       'type' => 'media_generic',
       'weight' => 2,
-    ),
-  );
-
-  // Exported field_instance: 'node-article-field_references'.
-  $field_instances['node-article-field_references'] = array(
-    'bundle' => 'article',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'hidden',
-        'module' => 'entityreference',
-        'settings' => array(
-          'link' => 1,
-        ),
-        'type' => 'entityreference_label',
-        'weight' => 3,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'fences_wrapper' => 'div',
-    'field_name' => 'field_references',
-    'label' => 'References',
-    'required' => 0,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'entityreference',
-      'settings' => array(
-        'match_operator' => 'CONTAINS',
-        'path' => '',
-        'size' => 60,
-      ),
-      'type' => 'entityreference_autocomplete',
-      'weight' => 5,
     ),
   );
 
@@ -1417,10 +1411,10 @@ function btr_config_field_default_field_instances() {
   t('Alt Text');
   t('Alternative text is used by screen readers, search engines, and when the image cannot be loaded. By adding alt text you improve accessibility and search engine optimization.');
   t('Body');
+  t('Citations');
   t('Image');
   t('Image ratio should be 16x9.
 1280X720 is optimal.');
-  t('References');
   t('Releases');
   t('Snippets:<br>
 &lt;div style="display:inline-block"&gt;Inline Block&lt;/div&gt;');

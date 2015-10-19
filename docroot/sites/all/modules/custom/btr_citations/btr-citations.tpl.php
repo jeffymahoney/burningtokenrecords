@@ -15,30 +15,30 @@
   <?php if (!empty($citations)): ?>
     <?php
     foreach ($citations as $citation_title => $citation_set):
-      switch ($citation_set):
-        case 'Paper':
+      switch ($citation_title):
+        case 'External':
           ?>
-          <h2 class="pane-subtitle">Paper Citations</h2>
-          <ol class="hfeed">
+          <h2>External links</h2>
+          <ul>
             <?php foreach ($citation_set as $citation): ?>
-              <li class="hentry paper">
+              <li>
                 <?php print $citation; ?>
               </li>
             <?php endforeach; ?>
-          </ol>    
+          </ul>
 
           <?php
           break;
         default:
           ?>
-          <h2 class="pane-subtitle"><?php print $citation_title ?> Citations</h2>
-          <ol class="hfeed">
+          <h2><?php print $citation_title ?>s</h2>
+          <ul>
             <?php foreach ($citation_set as $citation): ?>
-              <li class="hentry news">
+              <li>
                 <?php print $citation; ?>
               </li>
             <?php endforeach; ?>
-          </ol>    
+          </ul>
           <?php
           break;
       endswitch;
