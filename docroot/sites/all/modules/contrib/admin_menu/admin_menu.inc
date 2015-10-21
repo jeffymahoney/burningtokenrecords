@@ -686,6 +686,20 @@ function admin_menu_theme_settings() {
     '#default_value' => variable_get('admin_menu_cache_client', 1),
   );
 
+  $form['accessibility'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Accessibility'),
+    '#group' => 'advanced',
+  );
+  $form['accessibility']['admin_menu_font_size'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Font size'),
+    '#description' => t('Font size in pixels (px), ems (em), or percentage (%).<br /> ie. <em>1.1em</em> or <em>16px</em> or <em>120%</em><br /> Leave this field blank to use the default font size.'),
+    '#size' => 10,
+    '#maxlength' => 5,
+    '#default_value' => variable_get('admin_menu_font_size', ''),
+  );
+
   return system_settings_form($form);
 }
 
@@ -712,6 +726,18 @@ function admin_menu_theme_settings_validate(&$form, &$form_state) {
   // Change the configured components to Boolean values.
   foreach ($form_state['values']['admin_menu_components'] as $component => &$enabled) {
     $enabled = (bool) $enabled;
+  }
+  // Validates that the font size is valid.
+  if (!empty($form_state['values']['admin_menu_font_size'])) {
+    $font_size_raw = $form_state['values']['admin_menu_font_size'];
+    $allowed_units = array('em', '%', 'px');
+    $font_size_base = str_replace($allowed_units, '', $font_size_raw);
+    if ($font_size_base === $font_size_raw) {
+      form_set_error('admin_menu_font_size', t('The font size unit must be specified with px, em, or %.'));
+    }
+    if (!is_numeric($font_size_base) || $font_size_base <=0) {
+      form_set_error('admin_menu_font_size', t('The font size base value must be a positive number.'));
+    }
   }
 }
 

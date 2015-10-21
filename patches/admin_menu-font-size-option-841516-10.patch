@@ -1,0 +1,86 @@
+diff --git a/admin_menu.inc b/admin_menu.inc
+index 2eab789..91fcbd1 100644
+--- a/admin_menu.inc
++++ b/admin_menu.inc
+@@ -686,6 +686,20 @@ function admin_menu_theme_settings() {
+     '#default_value' => variable_get('admin_menu_cache_client', 1),
+   );
+ 
++  $form['accessibility'] = array(
++    '#type' => 'fieldset',
++    '#title' => t('Accessibility'),
++    '#group' => 'advanced',
++  );
++  $form['accessibility']['admin_menu_font_size'] = array(
++    '#type' => 'textfield',
++    '#title' => t('Font size'),
++    '#description' => t('Font size in pixels (px), ems (em), or percentage (%).<br /> ie. <em>1.1em</em> or <em>16px</em> or <em>120%</em><br /> Leave this field blank to use the default font size.'),
++    '#size' => 10,
++    '#maxlength' => 5,
++    '#default_value' => variable_get('admin_menu_font_size', ''),
++  );
++
+   return system_settings_form($form);
+ }
+ 
+@@ -713,6 +727,18 @@ function admin_menu_theme_settings_validate(&$form, &$form_state) {
+   foreach ($form_state['values']['admin_menu_components'] as $component => &$enabled) {
+     $enabled = (bool) $enabled;
+   }
++  // Validates that the font size is valid.
++  if (!empty($form_state['values']['admin_menu_font_size'])) {
++    $font_size_raw = $form_state['values']['admin_menu_font_size'];
++    $allowed_units = array('em', '%', 'px');
++    $font_size_base = str_replace($allowed_units, '', $font_size_raw);
++    if ($font_size_base === $font_size_raw) {
++      form_set_error('admin_menu_font_size', t('The font size unit must be specified with px, em, or %.'));
++    }
++    if (!is_numeric($font_size_base) || $font_size_base <=0) {
++      form_set_error('admin_menu_font_size', t('The font size base value must be a positive number.'));
++    }
++  }
+ }
+ 
+ /**
+diff --git a/admin_menu.js b/admin_menu.js
+index 2e28b55..a225374 100644
+--- a/admin_menu.js
++++ b/admin_menu.js
+@@ -20,6 +20,7 @@ Drupal.behaviors.adminMenu = {
+       tweak_modules: false,
+       tweak_permissions: false,
+       tweak_tabs: false,
++      font_size: false,
+       destination: '',
+       basePath: settings.basePath,
+       hash: 0,
+@@ -193,6 +194,15 @@ Drupal.admin.behaviors.pageTabs = function (context, settings, $adminMenu) {
+ };
+ 
+ /**
++ * Changes the font size.
++ */
++Drupal.admin.behaviors.fontSize = function (context, settings, $adminMenu) {
++  if (settings.admin_menu.font_size) {
++    $adminMenu.attr('style', 'font-size:' + settings.admin_menu.font_size);
++  }
++};
++
++/**
+  * Perform dynamic replacements in cached menu.
+  */
+ Drupal.admin.behaviors.replacements = function (context, settings, $adminMenu) {
+diff --git a/admin_menu.module b/admin_menu.module
+index 21bff9f..8eb111f 100644
+--- a/admin_menu.module
++++ b/admin_menu.module
+@@ -233,6 +233,9 @@ function admin_menu_page_build(&$page) {
+   if ($_GET['q'] == 'admin/people/permissions' || $_GET['q'] == 'admin/people/permissions/list') {
+     $settings['tweak_permissions'] = variable_get('admin_menu_tweak_permissions', 0);
+   }
++  if ($setting = variable_get('admin_menu_font_size', 0)) {
++    $settings['font_size'] = $setting;
++  }
+ 
+   $attached['js'][] = array(
+     'data' => array('admin_menu' => $settings),

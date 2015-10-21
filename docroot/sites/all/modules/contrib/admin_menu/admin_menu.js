@@ -20,6 +20,7 @@ Drupal.behaviors.adminMenu = {
       tweak_modules: false,
       tweak_permissions: false,
       tweak_tabs: false,
+      font_size: false,
       destination: '',
       basePath: settings.basePath,
       hash: 0,
@@ -189,6 +190,15 @@ Drupal.admin.behaviors.pageTabs = function (context, settings, $adminMenu) {
       .appendTo('#admin-menu-wrapper > ul > li.admin-menu-tab.active')
       .removeClass('secondary');
     $tabs.remove();
+  }
+};
+
+/**
+ * Changes the font size.
+ */
+Drupal.admin.behaviors.fontSize = function (context, settings, $adminMenu) {
+  if (settings.admin_menu.font_size) {
+    $adminMenu.attr('style', 'font-size:' + settings.admin_menu.font_size);
   }
 };
 
