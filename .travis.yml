@@ -67,10 +67,14 @@ before_script:
   - cd $TRAVIS_BUILD_DIR/docroot
   - drush si btr_profile --db-url=mysql://travis:@127.0.0.1/drupal --site-name="Burning Token Records" --account-mail="noreply@burningtokenrecords.com" --account-name=burningtokenrecords --account-pass=burningtokenrecords --site-mail="noreply@burningtokenrecords.com" -y;
 
-  # Starts a web server on port 8080, runs in the background; waits for
-  # initialization.
+  # Starts a web server on port 8080 which runs in the background.
   - drush @self runserver 127.0.0.1:8080 &
-  - until netstat -an 2>/dev/null | grep '8080.*LISTEN'; do true; done
+
+  # Waits for initialization.
+  # The commented line below worked on the old Travis architecture but it seems
+  # to hang on the new container based architecture. Using sleep instead.
+  #  - until netstat -an 2>/dev/null | grep '8080.*LISTEN'; do true; done
+  - sleep 10
 
 script:
   # Runs PhantomJs.
