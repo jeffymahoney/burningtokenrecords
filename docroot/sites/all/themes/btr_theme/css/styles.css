@@ -602,9 +602,11 @@ table {
 /* line 1, ../sass/components/_body.scss */
 body {
   background-color: #000;
-  background-image: url(../images/nomeansno_blurry_btr_background.jpg);
+  background-image: url(../images/background-logo-90-percent-682x829.jpg);
   background-repeat: no-repeat;
   background-attachment: fixed;
+  background-size: contain;
+  background-position: center;
   color: #fff;
 }
 
