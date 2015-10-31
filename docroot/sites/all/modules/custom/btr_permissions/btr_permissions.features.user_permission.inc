@@ -444,6 +444,15 @@ function btr_permissions_user_default_permissions() {
     'module' => 'file_entity',
   );
 
+  // Exported permission: 'create landing_page content'.
+  $permissions['create landing_page content'] = array(
+    'name' => 'create landing_page content',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'node',
+  );
+
   // Exported permission: 'create release content'.
   $permissions['create release content'] = array(
     'name' => 'create release content',
@@ -514,6 +523,15 @@ function btr_permissions_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'file_entity',
+  );
+
+  // Exported permission: 'delete any landing_page content'.
+  $permissions['delete any landing_page content'] = array(
+    'name' => 'delete any landing_page content',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'node',
   );
 
   // Exported permission: 'delete any release content'.
@@ -595,6 +613,15 @@ function btr_permissions_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'file_entity',
+  );
+
+  // Exported permission: 'delete own landing_page content'.
+  $permissions['delete own landing_page content'] = array(
+    'name' => 'delete own landing_page content',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'node',
   );
 
   // Exported permission: 'delete own release content'.
@@ -759,6 +786,15 @@ function btr_permissions_user_default_permissions() {
     'module' => 'file_entity',
   );
 
+  // Exported permission: 'edit any landing_page content'.
+  $permissions['edit any landing_page content'] = array(
+    'name' => 'edit any landing_page content',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'node',
+  );
+
   // Exported permission: 'edit any release content'.
   $permissions['edit any release content'] = array(
     'name' => 'edit any release content',
@@ -829,6 +865,15 @@ function btr_permissions_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'file_entity',
+  );
+
+  // Exported permission: 'edit own landing_page content'.
+  $permissions['edit own landing_page content'] = array(
+    'name' => 'edit own landing_page content',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'node',
   );
 
   // Exported permission: 'edit own release content'.
