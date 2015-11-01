@@ -89,6 +89,7 @@ features[node][] = band
 features[node][] = landing_page
 features[node][] = release
 features[node][] = video
+features[variable][] = admin_menu_components
 features[variable][] = advagg_ajax_render_alter
 features[variable][] = advagg_cache_level
 features[variable][] = advagg_combine_css_media
