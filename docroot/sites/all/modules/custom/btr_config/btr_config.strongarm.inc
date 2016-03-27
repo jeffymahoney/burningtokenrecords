@@ -17,10 +17,10 @@ function btr_config_strongarm() {
   $strongarm->value = array(
     'admin_menu.icon' => TRUE,
     'admin_menu.menu' => TRUE,
+    'admin_menu.search' => TRUE,
+    'admin_menu.users' => TRUE,
     'admin_menu.account' => TRUE,
     'shortcut.links' => FALSE,
-    'admin_menu.search' => FALSE,
-    'admin_menu.users' => FALSE,
   );
   $export['admin_menu_components'] = $strongarm;
 
