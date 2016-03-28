@@ -109,7 +109,11 @@ function title_field_formatter_view($entity_type, $entity, $field, $instance, $l
   if (!empty($output)) {
     if ($settings['title_link'] == 'content') {
       $uri = entity_uri($entity_type, $entity);
-      $output = l($output, $uri['path'], array('html' => TRUE));
+      $options = array('html' => TRUE);
+      if (!empty($uri['options'])) {
+        $options = array_merge($options, $uri['options']);
+      }
+      $output = l($output, $uri['path'], $options);
     }
 
     $wrap_tag = empty($settings['title_style']) ? '_none' : $settings['title_style'];
