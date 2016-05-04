@@ -13,3 +13,6 @@ sites/default/files
 docroot/error_log
 private*
 vendor*
+#ignore dev desktop files
+*.dd
+docroot/sites/sites.php
