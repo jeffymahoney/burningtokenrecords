@@ -7,8 +7,8 @@ package = Views
 files[] = eva_plugin_display_entity.inc
 
 ; Information added by Drupal.org packaging script on 2016-08-08
-version = "7.x-1.4-rc+0-dev"
+version = "7.x-1.4-rc1"
 core = "7.x"
 project = "eva"
-datestamp = "1470618540"
+datestamp = "1470619746"
 
