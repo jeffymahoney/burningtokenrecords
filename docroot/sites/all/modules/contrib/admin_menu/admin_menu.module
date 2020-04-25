@@ -233,6 +233,9 @@ function admin_menu_page_build(&$page) {
   if (strpos($_GET['q'], 'admin/people/permissions') === 0) {
     $settings['tweak_permissions'] = variable_get('admin_menu_tweak_permissions', 0);
   }
+  if ($setting = variable_get('admin_menu_font_size', 0)) {
+    $settings['font_size'] = $setting;
+  }
 
   $attached['js'][] = array(
     'data' => array('admin_menu' => $settings),
