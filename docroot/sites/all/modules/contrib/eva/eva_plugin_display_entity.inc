@@ -180,7 +180,7 @@ class eva_plugin_display_entity extends views_plugin_display {
 
         $form['token']['default_argument'] = array(
           '#title' => t('Arguments'),
-          '#type' => 'textfield',
+          '#type' => 'textarea',
           '#default_value' => $this->get_option('default_argument'),
           '#description' => t('You may use token replacement to provide arguments based on the current entity. Separate arguments with "/".'),
         );

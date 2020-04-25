@@ -33,8 +33,8 @@ class MediaYouTubeTestHandler extends MediaInternetYouTubeHandler {
    *   TRUE if the video ID is valid, or throws a
    *   MediaInternetValidationException otherwise.
    */
-  static public function validId($id) {
-    $uri = file_stream_wrapper_uri_normalize('youtube://v/' . check_plain($id));
+  public function validId($id, $type = 'v') {
+    $uri = file_stream_wrapper_uri_normalize('youtube://' . $type . '/' . check_plain($id));
     $external_url = file_create_url($uri);
     $oembed_url = url('media-youtube-test/oembed', array('query' => array('url' => $external_url, 'format' => 'json'), 'absolute' => TRUE));
     $response = drupal_http_request($oembed_url, array('method' => 'HEAD'));
